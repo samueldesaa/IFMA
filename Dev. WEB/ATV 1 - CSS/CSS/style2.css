@@ -1,0 +1,97 @@
+@charset "UFT-8";
+    h1{
+        font-size: 40px;
+        background-color: rgb(98, 142, 202);
+        }
+     body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        p{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        div{
+            text-align: center;
+        }
+    img.rounded{
+        border-radius: 50%;
+        width: 40%;
+        }
+        img.rounded_b{
+            border-radius: 10px;
+            width: 40%;
+        }
+        img.thumbnail {
+            border: 8px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            width: 30%;
+        }
+        img.thumbnail_b {
+            border: 8px solid rgb(31, 203, 241);
+            border-radius: 4px;
+            padding: 5px;
+            width: 30%;
+        }
+        img.responsive{
+            max-width: 700px;
+            height: auto;
+        }.r_b{
+            max-width: 400px;
+        }
+        img.transparent{
+            opacity: 1;
+            width: 30%;
+        }.b{
+            opacity: 0.3;
+            width: 30%;
+        }.c{
+            opacity: 0.6;
+            width: 30%;
+        }
+        img.filtro{
+            width: 20%;
+            height: auto;
+        }.grayscale{
+            width: 20%;
+            height: auto;
+            filter: grayscale(80%);
+        }.drops{
+            width: 20%;
+            height: auto;
+            filter: drop-shadow(4px 4px 10px blue);
+        }.huer{
+            width: 20%;
+            height: auto;
+            filter: hue-rotate(90deg);
+        }
+         .container {
+            display: flex;
+  
+        }.hover-overlay,
+        .image-container {
+            width: 40%;
+            overflow: hidden;
+        }.hover-overlay .image {
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: border-radius 0.3s ease;
+        }.hover-overlay:hover .image {
+            border-radius: 50%;
+        }.image-container .ima {
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: filter 0.3s ease;
+        }.image-container:hover .ima {
+            filter: grayscale(100%);
+        }
+        .flip:hover{
+            width: 48%;
+            transform: scaleX(-1);
+        }
+        .flip2:hover{
+            width: 48%;
+            float: right;
+            transform: scaleY(-1);
+        }

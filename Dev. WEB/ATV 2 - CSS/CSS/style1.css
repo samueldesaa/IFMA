@@ -1,0 +1,26 @@
+div {
+    margin: auto;
+    width: 30%;
+    border: 2px solid #059b05;
+    padding: 7px;
+}
+
+h1 {
+    font-family: "Arial";
+    color: #059b05;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 3px 3px #d3d3d3b7;
+}
+
+p {
+    font-family: "Arial Regular";
+    letter-spacing: 1px;
+    text-indent: 40px;
+    text-align: justify;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(35, 97, 155);
+}

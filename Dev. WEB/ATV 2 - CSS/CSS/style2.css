@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Jersey+20+Charted&family=Waterfall&display=swap');
+
+div {
+    margin: auto;
+    padding: 4px 8px 0px;
+    width: 43%;
+    background-color: lightblue;
+}
+
+h1 {
+    text-align: center;
+    color: rgb(165, 9, 67);
+    font-family: "Jersey 20 Charted", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 60px;
+}
+
+h2 {
+    font-family: "Fredericka the Great", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 40px;
+}
+
+.blue {
+    color: rgb(12, 109, 220);
+}
+
+.golden {
+    color: rgb(194, 140, 5);
+}
+
+.green {
+    color: rgb(19, 164, 87);
+    background-color: rgba(126, 204, 162, 0.64);
+}
+
+span.green {
+    background-color: transparent;
+    font-weight: bold;
+}
+
+p {
+    font-family: "Waterfall";
+    font-weight: 400;
+    font-size: 30px;
+    font-style: normal;
+    padding: 20px 5px;
+    text-indent: 30px;
+}
