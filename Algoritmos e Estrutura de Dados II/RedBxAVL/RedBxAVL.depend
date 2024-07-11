@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1720676277 source:c:\users\samue\onedrive\documentos\ifma\algoritmos e estrutura de dados ii\redbxavl\avl-tree.c
+	<stdlib.h>
+	"avl-tree.h"
+	"alloc-testing.h"
+
+1720676290 c:\users\samue\onedrive\documentos\ifma\algoritmos e estrutura de dados ii\redbxavl\avl-tree.h
+
+1720677233 source:c:\users\samue\onedrive\documentos\ifma\algoritmos e estrutura de dados ii\redbxavl\rb-tree.c
+	<stdlib.h>
+	"rb-tree.h"
+
+1720677302 c:\users\samue\onedrive\documentos\ifma\algoritmos e estrutura de dados ii\redbxavl\rb-tree.h
+	<stdio.h>
+	<stdlib.h>
+
+1720678856 source:c:\users\samue\onedrive\documentos\ifma\algoritmos e estrutura de dados ii\redbxavl\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"avl-tree.h"
+	"rb-tree.h"
+

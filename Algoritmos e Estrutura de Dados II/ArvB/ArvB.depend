@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1720678427 source:c:\users\samue\onedrive\documentos\ifma\algoritmos e estrutura de dados ii\arvb\main.c
+	<stdio.h>
+	"btree.h"
+
+1720674073 c:\users\samue\onedrive\documentos\ifma\algoritmos e estrutura de dados ii\arvb\btree.h
+	<stdbool.h>
+
+1720674258 source:c:\users\samue\onedrive\documentos\ifma\algoritmos e estrutura de dados ii\arvb\btree.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"btree.h"
+

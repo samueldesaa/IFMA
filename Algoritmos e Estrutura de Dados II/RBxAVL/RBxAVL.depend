@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1711553737 source:c:\users\samue\onedrive\documentos\ifma\algoritmos e estrutura de dados ii\rbxavl\arvore.c
+	<stdio.h>
+	<stdlib.h>
+	"arvAVL.h"
+
+1711548670 c:\users\samue\onedrive\documentos\ifma\algoritmos e estrutura de dados ii\rbxavl\arvavl.h
+
+1712586303 source:c:\users\samue\onedrive\documentos\ifma\algoritmos e estrutura de dados ii\rbxavl\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"arvAVL.h"
+	"rbt.h"
+
+1712585655 c:\users\samue\onedrive\documentos\ifma\algoritmos e estrutura de dados ii\rbxavl\rbt.h
+
+1712586360 source:c:\users\samue\onedrive\documentos\ifma\algoritmos e estrutura de dados ii\rbxavl\rbt.c
+	<stdlib.h>
+	<assert.h>
+	<stdio.h>
+	"rbt.h"
+

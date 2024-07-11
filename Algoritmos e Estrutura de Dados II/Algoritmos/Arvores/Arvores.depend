@@ -1,0 +1,66 @@
+# depslib dependency file v1.0
+1711553737 source:c:\users\samue\onedrive\documentos\ifma\algoritmos e estrutura de dados ii\arvores\arvore.c
+	<stdio.h>
+	<stdlib.h>
+	"arvAVL.h"
+
+1711548670 c:\users\samue\onedrive\documentos\ifma\algoritmos e estrutura de dados ii\arvores\arvavl.h
+
+1711554083 source:c:\users\samue\onedrive\documentos\ifma\algoritmos e estrutura de dados ii\arvores\arvorebin.c
+	<stdio.h>
+	<stdlib.h>
+	"ArvBin.h"
+
+1711549391 c:\users\samue\onedrive\documentos\ifma\algoritmos e estrutura de dados ii\arvores\arvbin.h
+
+1711551526 source:c:\users\samue\onedrive\documentos\ifma\algoritmos e estrutura de dados ii\arvores\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"ArvAVL.h"
+	"ArvBin.h"
+
+1711568413 source:c:\users\labmaker\documents\algoritmos\arvores\arvore.c
+	<stdio.h>
+	<stdlib.h>
+	"arvAVL.h"
+
+1711565864 c:\users\labmaker\documents\algoritmos\arvores\arvavl.h
+
+1711565864 source:c:\users\labmaker\documents\algoritmos\arvores\arvorebin.c
+	<stdio.h>
+	<stdlib.h>
+	"ArvBin.h"
+
+1711565864 c:\users\labmaker\documents\algoritmos\arvores\arvbin.h
+
+1711574502 source:c:\users\labmaker\documents\algoritmos\arvores\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<windows.h>
+	"arvAVL.h"
+	"arvBin.h"
+
+1711574790 source:c:\users\samue\onedrive\documentos\ifma\algoritmos e estrutura de dados ii\algoritmos\arvores\arvore.c
+	<stdio.h>
+	<stdlib.h>
+	"arvAVL.h"
+
+1711574790 c:\users\samue\onedrive\documentos\ifma\algoritmos e estrutura de dados ii\algoritmos\arvores\arvavl.h
+
+1711574791 source:c:\users\samue\onedrive\documentos\ifma\algoritmos e estrutura de dados ii\algoritmos\arvores\arvorebin.c
+	<stdio.h>
+	<stdlib.h>
+	"ArvBin.h"
+
+1711574790 c:\users\samue\onedrive\documentos\ifma\algoritmos e estrutura de dados ii\algoritmos\arvores\arvbin.h
+
+1711587818 source:c:\users\samue\onedrive\documentos\ifma\algoritmos e estrutura de dados ii\algoritmos\arvores\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<windows.h>
+	"arvAVL.h"
+	"arvBin.h"
+
