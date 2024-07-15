@@ -1,0 +1,192 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    /* background-color: black; */
+}
+
+h1 {
+    font-size: 40px;
+    background-color: rgb(133, 183, 223);
+}
+
+p{
+    margin-top: -20px;
+}
+
+div {
+    text-align: center;
+}
+
+img {
+    margin: 25px 10px;
+    width: 40%;
+    height: auto;
+}
+
+#im1 {
+    /* border-radius: 100px; */
+    /* border-radius: 100px 10px; */
+    /* border-radius: 90px 5px 300px; */
+    border-radius: 30px 300px 0 150px;
+}
+
+#im2 {
+    width: 400px;
+    border-radius: 50%;
+}
+
+.thumb {
+    border: 1px solid rgb(181, 181, 181);
+    border-radius: 5px;
+    padding: 8px;
+}
+
+a>img:hover {
+    box-shadow: 0 0 2px 3px rgb(58, 181, 222);
+}
+
+#im3 {
+    max-width: 400px;
+}
+
+#im4 {
+    min-width: 300px;
+}
+
+.wd30 {
+    width: 30%;
+    height: auto;
+}
+
+.op1 {
+    opacity: 1;
+}
+
+.op2 {
+    opacity: 0.5;
+}
+
+.op3 {
+    opacity: 0.2;
+}
+
+.wd23 {
+    width: 30%;
+}
+
+#f2 {
+    filter: blur(2px) brightness(1.7);
+}
+
+#f3 {
+    filter: brightness(1.1) contrast(1.3) saturate(1.2);
+}
+
+#f4 {
+    filter: grayscale(1) drop-shadow(10px 10px 7px rgb(6, 99, 128));
+}
+
+#f5 {
+    filter: hue-rotate(30deg);
+}
+
+#f6 {
+    filter: invert(1);
+}
+
+#f7 {
+    filter: saturate(2);
+}
+
+#f8 {
+    filter: sepia(1);
+}
+
+.container {
+    display: inline-block;
+    position: relative;
+    width: 30%;
+    margin: 10px;
+}
+
+.container>img {
+    display: block;
+    margin: 0;
+    width: 100%;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    left: 50%;
+    right: 50%;
+    height: 0%;
+    width: 0%;
+    overflow: hidden;
+    transition: 1s ease;
+    background-color: #3ad295;
+}
+
+
+.container:hover .overlay{
+    top: 0%;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+    height: 100%;
+    width: 100%;
+}
+
+
+.text {
+    color: white;
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.overlay2 {
+    position: absolute;
+    top: 0%;
+    bottom: 100%;
+    left: 100%;
+    right: 0%;
+    background-color: #3ad295;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    transition: 1s ease;
+  }
+
+  .container:hover .overlay2 {
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .text2 {
+    white-space: nowrap;
+    color: white;
+    font-size: 30px;
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
+  #flipHov{
+    width: 40%;
+    margin: 0 20%;
+  }
+  #flipHov:hover{
+    transform: scaleX(-1);
+  }
+  #flip{
+    transform: scaleY(-1);
+  }
