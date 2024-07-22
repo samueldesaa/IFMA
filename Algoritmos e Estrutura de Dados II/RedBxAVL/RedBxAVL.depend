@@ -21,3 +21,18 @@
 	"avl-tree.h"
 	"rb-tree.h"
 
+1720744567 source:c:\users\samue\onedrive\documentos\github\ifma\algoritmos e estrutura de dados ii\redbxavl\avl-tree.c
+	<stdlib.h>
+	"avl-tree.h"
+	"alloc-testing.h"
+
+1720744567 c:\users\samue\onedrive\documentos\github\ifma\algoritmos e estrutura de dados ii\redbxavl\avl-tree.h
+
+1720744567 source:c:\users\samue\onedrive\documentos\github\ifma\algoritmos e estrutura de dados ii\redbxavl\rb-tree.c
+	<stdlib.h>
+	"rb-tree.h"
+
+1720744567 c:\users\samue\onedrive\documentos\github\ifma\algoritmos e estrutura de dados ii\redbxavl\rb-tree.h
+	<stdio.h>
+	<stdlib.h>
+

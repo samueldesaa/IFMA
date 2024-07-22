@@ -135,8 +135,9 @@ void traversal(struct BTreeNode *node) {
 // Insere n números aleatórios
 void insertRandomNumbers(int n) {
     srand(time(0));
-    for (int i = 0; i < n; i++) {
-        int num = rand(); // Gera um número aleatório
+    for (int i = 1; i <= n; i++) {
+        //int num = rand(); // Gera um número aleatório
+        int num = i;
         insert(num);
     }
 }

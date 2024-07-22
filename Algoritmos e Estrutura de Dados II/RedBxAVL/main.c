@@ -4,7 +4,7 @@
 #include "avl-tree.h"
 #include "rb-tree.h"
 
-#define NUM_ELEMENTS 1000000
+#define NUM_ELEMENTS 1560320
 
 // Função para gerar números aleatórios
 int rand_int(int min, int max) {
@@ -106,10 +106,10 @@ void test_rb_tree() {
 }
 
 int main() {
-    for(int i=0;i<2;i++)
-    test_avl_tree();
-    printf("\n");
-    for(int i=0;i<2;i++)
+    //for(int i=0;i<2;i++)
+    //test_avl_tree();
+    //printf("\n");
+    //for(int i=0;i<2;i++)
     test_rb_tree();
     printf("\n");
 
