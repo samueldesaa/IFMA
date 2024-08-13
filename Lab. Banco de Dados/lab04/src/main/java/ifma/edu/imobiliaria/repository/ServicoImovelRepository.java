@@ -37,4 +37,12 @@ public class ServicoImovelRepository {
         TypedQuery<ServicoImovel> query = entityManager.createQuery("SELECT s FROM ServicoImovel s", ServicoImovel.class);
         return query.getResultList();
     }
+
+    public void setEntityManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
+    public EntityManager getEntityManager() {
+        return entityManager;
+    }
 }

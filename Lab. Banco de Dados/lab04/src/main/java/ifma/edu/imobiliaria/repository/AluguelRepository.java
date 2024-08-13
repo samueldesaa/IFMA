@@ -60,4 +60,19 @@ public class AluguelRepository {
         query.setParameter("dataLimite", dataLimite);
         return query.getResultList();
     }
+
+    public void setEntityManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
+    public EntityManager getEntityManager() {
+        return entityManager;
+    }
+
+    public List<Aluguel> findByClienteId(int clienteId) {
+        String jpql = "SELECT a FROM Aluguel a WHERE a.cliente.id = :clienteId";
+        TypedQuery<Aluguel> query = entityManager.createQuery(jpql, Aluguel.class);
+        query.setParameter("clienteId", clienteId);
+        return query.getResultList();
+    }
 }

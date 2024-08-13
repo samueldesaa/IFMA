@@ -28,4 +28,12 @@ public class ProfissionalRepository {
         TypedQuery<Profissional> query = entityManager.createQuery("SELECT p FROM Profissional p", Profissional.class);
         return query.getResultList();
     }
+
+    public void setEntityManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
+    public EntityManager getEntityManager() {
+        return entityManager;
+    }
 }

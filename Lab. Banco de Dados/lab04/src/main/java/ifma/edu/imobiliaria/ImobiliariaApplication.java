@@ -9,7 +9,7 @@ import javax.persistence.Persistence;
 
 public class ImobiliariaApplication {
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("lab_jpa");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("imobiliariaPU");
         EntityManager em = emf.createEntityManager();
 
         // Exemplo de uso: criando um TipoImovel
