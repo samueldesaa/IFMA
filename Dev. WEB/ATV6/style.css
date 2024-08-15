@@ -1,0 +1,20 @@
+img{
+    max-width: 45vw;
+}
+.logo{
+    width: 7%;
+    border-radius: 100%;
+}
+.portfolio{
+    margin: 0;
+    padding: 0;
+    width: 70%;
+    height: auto;
+}
+.portfolio>img{
+    width: auto;
+    margin: 0;
+}
+img.robot{
+    width: 100%;
+}
