@@ -1,52 +1,66 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quem Sou - Samuel Chaves de Sá</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/mobile.css" media="screen and (max-width: 600px)">
-    <link rel="stylesheet" href="styles/tablet.css" media="screen and (min-width: 601px) and (max-width: 1024px)">
-    <link rel="stylesheet" href="styles/pc.css" media="screen and (min-width: 1025px)">
+    <title>ATV7</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <header class="grid-desktop-12 grid-tablet-12 grid-mobile-12">
-        <div class="logo grid-desktop-4 grid-tablet-4 grid-mobile-12">
-            <img src="imagens/logo.jpg" alt="Logo Samuel Chaves de Sá">
-        </div>
-        <h1 class="grid-desktop-8 grid-tablet-8 grid-mobile-12">Samuel Chaves de Sá</h1>
-        <nav class="grid-desktop-12 grid-tablet-12 grid-mobile-12">
-            <ul>
-                <li><a href="index.html">Quem Sou</a></li>
-                <li><a href="portfolio.html">Portfólio</a></li>
-                <li><a href="minicurriculo.html">Minicurrículo</a></li>
-                <li><a href="contato.html">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main class="grid-desktop-12 grid-tablet-12 grid-mobile-12">
-        <section class="about grid-desktop-8 grid-tablet-8 grid-mobile-12">
-            <img src="imagens/selfie.jpg" alt="Selfie Samuel Chaves de Sá">
-            <h2>Quem Sou</h2>
-            <p>Olá, meu nome é Samuel Chaves de Sá, tenho 19 anos, e sou estudante de Sistemas de Informação. Além da paixão pela tecnologia, sou integrante da equipe de robótica do IFMA e também artesão, especializado em crochê. Combinando minhas habilidades técnicas e artísticas, busco sempre inovar e criar soluções únicas.</p>
-            <p>Minha jornada acadêmica e profissional é marcada por um constante desejo de aprender e evoluir, seja através dos meus estudos em Sistemas de Informação, dos projetos de crochê que desenvolvo, ou dos robôs que ajudo a construir.</p>
-        </section>
-    </main>
-
-    <footer class="grid-desktop-12 grid-tablet-12 grid-mobile-12">
-        <ul class="social-links grid-desktop-6 grid-tablet-6 grid-mobile-12">
-            <li><a href="https://www.linkedin.com/in/samuel-chaves-de-s%C3%A1-6805b91bb/" target="_blank">LinkedIn</a></li>
-            <li><a href="https://github.com/samueldesaa" target="_blank">GitHub</a></li>
-            <li><a href="https://www.instagram.com/samueldesaa" target="_blank">Instagram</a></li>
-        </ul>
-        <ul class="footer-menu grid-desktop-6 grid-tablet-6 grid-mobile-12">
-            <li><a href="index.html">Quem Sou</a></li>
-            <li><a href="portfolio.html">Portfólio</a></li>
-            <li><a href="minicurriculo.html">Minicurrículo</a></li>
-            <li><a href="contato.html">Contato</a></li>
-        </ul>
-        <p class="grid-desktop-12 grid-tablet-12 grid-mobile-12">&copy; 2024 Copyright - Desenvolvido por Samuel Chaves de Sá</p>
-    </footer>
+    <h1>Inscrição para o Concurso de Fotografia</h1>
+    <form action="" method="">
+        <label for="inome">Nome Completo:</label>
+        <input type="text" name="nome" id="inome" required>
+        
+        <label for="iemail">E-mail:</label>
+        <input type="email" name="email" id="iemail" required>
+        
+        <fieldset>
+            <legend>Categoria:</legend>
+            <input type="radio" name="iradio" id="radio1" value="paisagem" required>
+            <label for="radio1">Paisagem</label>
+            <br>
+            <input type="radio" name="iradio" id="radio2" value="retrato">
+            <label for="radio2">Retrato</label>
+            <br>
+            <input type="radio" name="iradio" id="radio3" value="natureza">
+            <label for="radio3">Natureza</label>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Tipo do arquivo:</legend>
+            <label for="iselect">Selecione:</label>
+            <br>
+            <select name="select" id="iselect" required>
+                <option value="JPG">JPG</option>
+                <option value="JPEG">JPEG</option>
+                <option value="PNG">PNG</option>
+                <option value="TIFF">TIFF</option>
+            </select>
+        </fieldset>
+        
+        <label for="idate">Data da Foto:</label>
+        <input type="date" name="date" id="idate" required>
+        
+        <label for="itextarea">Descrição da Fotografia</label>
+        <textarea name="textarea" id="itextarea" required></textarea>
+        
+        <input type="checkbox" id="icheckbox" value="sim">
+        <label for="icheckbox">Desejo receber notificações sobre futuros concursos</label>
+        <br>
+        <label for="ifile">Upload da Fotografia</label>
+        <fieldset>
+            <input type="file" name="file" id="ifile" accept=".jpg, .jpeg, .png, .tiff" required>
+        </fieldset>
+        <input onclick=alertaTudo() type="submit" value="Enviar">
+    </form>
 </body>
+<script>
+    function alertaTudo(){
+        alert('Obrigado, '+document.getElementById("inome").value+'! Sua inscrição foi realizada com sucesso');
+    }
+</script>
+
 </html>
