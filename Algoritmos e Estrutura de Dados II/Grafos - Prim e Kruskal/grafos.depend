@@ -1,0 +1,31 @@
+# depslib dependency file v1.0
+1723313967 source:c:\users\samue\onedrive\documentos\github\ifma\algoritmos e estrutura de dados ii\grafos\grafo.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	"Grafo.h"
+
+1723313961 c:\users\samue\onedrive\documentos\github\ifma\algoritmos e estrutura de dados ii\grafos\grafo.h
+
+1723511133 source:c:\users\samue\onedrive\documentos\github\ifma\algoritmos e estrutura de dados ii\grafos\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<stdbool.h>
+	<time.h>
+	"Grafo.h"
+
+1724858618 source:c:\users\samue\onedrive\documentos\github\ifma\algoritmos e estrutura de dados ii\grafos - prim e kruskal\grafo.c
+	<stdio.h>
+	<stdlib.h>
+	<limits.h>
+	<float.h>
+	"grafo.h"
+
+1724858605 c:\users\samue\onedrive\documentos\github\ifma\algoritmos e estrutura de dados ii\grafos - prim e kruskal\grafo.h
+
+1724858790 source:c:\users\samue\onedrive\documentos\github\ifma\algoritmos e estrutura de dados ii\grafos - prim e kruskal\main.c
+	<stdio.h>
+	<stdlib.h>
+	"grafo.h"
+

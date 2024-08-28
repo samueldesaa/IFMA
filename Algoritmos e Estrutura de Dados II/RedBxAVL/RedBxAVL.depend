@@ -36,3 +36,10 @@
 	<stdio.h>
 	<stdlib.h>
 
+1721434667 source:c:\users\samue\onedrive\documentos\github\ifma\algoritmos e estrutura de dados ii\redbxavl\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"avl-tree.h"
+	"rb-tree.h"
+
