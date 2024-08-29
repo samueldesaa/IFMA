@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+                                 http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+    <persistence-unit name="transportadoraPU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>ifma.edu.transportadora.model.CategoriaFrete</class>
+        <class>ifma.edu.transportadora.model.Cidade</class>
+        <class>ifma.edu.transportadora.model.Cliente</class>
+        <class>ifma.edu.transportadora.model.Dependente</class>
+        <class>ifma.edu.transportadora.model.Distancia</class>
+        <class>ifma.edu.transportadora.model.Filial</class>
+        <class>ifma.edu.transportadora.model.Frete</class>
+        <class>ifma.edu.transportadora.model.Funcionario</class>
+        <class>ifma.edu.transportadora.model.ItemFrete</class>
+        <class>ifma.edu.transportadora.model.PessoaFisica</class>
+        <class>ifma.edu.transportadora.model.TipoVeiculo</class>
+        <class>ifma.edu.transportadora.model.Veiculo</class>
+        <properties>
+            <!-- JDBC properties -->
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/transportadoraPU"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+
+            <!-- Hibernate properties -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <!-- Optional: Set the format of SQL output -->
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
+
