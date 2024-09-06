@@ -15,16 +15,16 @@
 	<time.h>
 	"Grafo.h"
 
-1724858618 source:c:\users\samue\onedrive\documentos\github\ifma\algoritmos e estrutura de dados ii\grafos - prim e kruskal\grafo.c
+1724859637 source:c:\users\samue\onedrive\documentos\github\ifma\algoritmos e estrutura de dados ii\grafos - prim e kruskal\grafo.c
 	<stdio.h>
 	<stdlib.h>
 	<limits.h>
 	<float.h>
 	"grafo.h"
 
-1724858605 c:\users\samue\onedrive\documentos\github\ifma\algoritmos e estrutura de dados ii\grafos - prim e kruskal\grafo.h
+1724859532 c:\users\samue\onedrive\documentos\github\ifma\algoritmos e estrutura de dados ii\grafos - prim e kruskal\grafo.h
 
-1724858790 source:c:\users\samue\onedrive\documentos\github\ifma\algoritmos e estrutura de dados ii\grafos - prim e kruskal\main.c
+1724859535 source:c:\users\samue\onedrive\documentos\github\ifma\algoritmos e estrutura de dados ii\grafos - prim e kruskal\main.c
 	<stdio.h>
 	<stdlib.h>
 	"grafo.h"
