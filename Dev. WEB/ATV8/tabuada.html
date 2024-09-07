@@ -5,38 +5,154 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabuada Divertida</title>
+    <link rel="stylesheet" href="style2.css">
 </head>
 
 <body>
-    <form action="">
-        <h2>Tabuada Divertida!</h2>
+    <header>
+        <h1>Tabuada Divertida!</h1>
+        <a href="index.html">Voltar</a>
+    </header>
+    <form id="nome" onsubmit="start(event)">
         <label for="itexto">Digite o seu nome:</label>
-        <br>
-        <input type="text" name="texto" id="itexto" required>
-        <input id="botao" onsubmit="naoAtualiza()" type="submit" value="Começar">
+        <input type="text" name="texto" id="itexto" placeholder="Nome" required>
+        <button type="submit">Enviar</button>
     </form>
-    <form action="">
+    
+    <form id="jogo" onsubmit="confirmar(event)" style="display:none;">
+        <img id="emoji" src="imagens/Emoji1-removebg-preview.png" alt="Emoji de reação">
+        <h2 id="fase">Fase 1</h2>
         <br>
-        <label for="inumber" id="fase"></label>
+        <label for="inumber" id="operacao">0 x 0 = ?</label>
         <br>
-        <input type="number" name="number" id="inumber">
+        <input type="number" name="number" id="inumber" step="0.01" required>
+        <button type="submit">Confirmar</button>
         <br>
     </form>
+    <div id="fim" style="display:none;">
+        <h2>Fim de Jogo!</h2>
+        <p id="situacaoJogo">Situação</p>
+        <button><a href="tabuada.html">Jogar Novamente</a></button>
+    </div>
     <script>
         function max(numMax) {
-            return parseInt(Math.random() * numMax);
+            return Math.floor(Math.random() * numMax);
         }
+
         function max10() {
-            return max(10);
+            return max(11);
         }
-        function naoAtualiza(evt) {
-            evt.preventDefault();
+
+        let nome = document.getElementById('itexto');
+        nome.focus();
+        let level = document.getElementById("fase");
+        let labelOp = document.getElementById("operacao");
+        let resultado;
+        let pontos = 0;
+        let fase = 1;
+        let n1, n2;
+
+        function operacaoExibir() {
+            var r1 = 0;
+            var r2 = 0;
+
+            const interval = setInterval(() => {
+                if (r1 != n1) {
+                    r1 = max(20);
+                }
+                if (r2 != n2) {
+                    r2 = max(20);
+                }
+
+                labelOp.innerHTML = `${r1} X ${r2} = ?`;
+
+                if (r1 == n1 && r2 == n2) {
+                    clearInterval(interval);
+                }
+            }, 30);
         }
-        function start() {
-            document
-                .getElementById("botao")
-                .addEventListener("click", naoAtualiza, false);
-            document.getElementById("fase").innerHTML = "Começou";
+
+        function tabuada() {
+            n1 = max10();
+            n2 = max10();
+            resultado = n1 * n2;
+            resultado = resultado.toFixed(2);
+        }
+
+        let jogo = document.getElementById("jogo");
+
+        function atualizarCor() {
+            if (pontos < 2) {
+                jogo.style.backgroundColor = "#f58c8c";
+            } else if (pontos < 4) {
+                jogo.style.backgroundColor = "#faaa55";
+            } else if (pontos < 6) {
+                jogo.style.backgroundColor = "#fccb58";
+            } else if (pontos < 8) {
+                jogo.style.backgroundColor = "#fae764";
+            } else if (pontos < 10) {
+                jogo.style.backgroundColor = "#e8f57f";
+            } else {
+                jogo.style.backgroundColor = "green";
+            }
+        }
+
+        function start(event) {
+            event.preventDefault();
+            nome = nome.value;
+            document.getElementById('nome').style.display = 'none';
+            jogo.style.display = 'flex';
+            document.getElementById('inumber').focus();
+            
+            tabuada();
+            operacaoExibir();
+            atualizarCor();
+        }
+
+        function confirmar(event) {
+            event.preventDefault();
+            let resposta = document.getElementById('inumber');
+            if (resposta.value === "") {
+                alert("Resposta Inválida");
+                return;
+            }
+            
+            let valor = parseFloat(resposta.value);
+            valor = valor.toFixed(2);
+
+            let feliz = [7, 6, 3, 1];
+            let triste = [8, 5, 4, 2];
+
+            if (valor == resultado) {
+                let emojiFeliz = feliz[max(4)]; // Escolhe um emoji feliz aleatório
+                document.getElementById("emoji").setAttribute("src", `imagens/Emoji${emojiFeliz}-removebg-preview.png`);
+                alert("Você acertou, ganhou 2 pontos");
+                pontos += 2;
+            } else {
+                let emojiTriste = triste[max(4)]; // Escolhe um emoji triste aleatório
+                document.getElementById("emoji").setAttribute("src", `imagens/Emoji${emojiTriste}-removebg-preview.png`);
+                alert(`Resposta Errada, a resposta correta era: ${resultado}`);
+                if (pontos > 0) {
+                    pontos--;
+                }
+            }
+            fase++;
+            if (fase == 6) {
+                document.getElementById('jogo').style.display = 'none';
+                document.getElementById('fim').style.display = 'flex';
+                if (pontos == 10) {
+                    document.getElementById('situacaoJogo').innerHTML = `Parabéns ${nome}, você atingiu o nível máximo do jogo! 10.0 pontos`;
+                    document.getElementById('fim').style.backgroundColor = "#aeed8c";
+                } else {
+                    document.getElementById('situacaoJogo').innerHTML = `${nome}, você fez ${pontos}.0 pontos`;
+                }
+            } else {
+                level.innerHTML = `Fase ${fase}`;
+                tabuada();
+                operacaoExibir();
+                resposta.value = "";
+                atualizarCor();
+            }
         }
     </script>
 </body>
