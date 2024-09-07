@@ -1,31 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabuada Divertida</title>
 </head>
+
 <body>
     <form action="">
+        <h2>Tabuada Divertida!</h2>
         <label for="itexto">Digite o seu nome:</label>
         <br>
-        <input type="text" name="texto" id="itexto">
+        <input type="text" name="texto" id="itexto" required>
+        <input id="botao" onsubmit="naoAtualiza()" type="submit" value="Começar">
+    </form>
+    <form action="">
         <br>
         <label for="inumber" id="fase"></label>
         <br>
         <input type="number" name="number" id="inumber">
         <br>
-        <input onclick="" type="submit" value="Enviar">
     </form>
     <script>
-        function max(numMax){
-            return parseInt(Math.random()*numMax);
+        function max(numMax) {
+            return parseInt(Math.random() * numMax);
         }
-        function max10(){
+        function max10() {
             return max(10);
         }
-        document.getElementById("fase").innerHTML = "";
-</script>
+        function naoAtualiza(evt) {
+            evt.preventDefault();
+        }
+        function start() {
+            document
+                .getElementById("botao")
+                .addEventListener("click", naoAtualiza, false);
+            document.getElementById("fase").innerHTML = "Começou";
+        }
+    </script>
 </body>
-</html>
 
+</html>
