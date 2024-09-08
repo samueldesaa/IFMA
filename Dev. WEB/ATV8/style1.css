@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+*{
+    font-family: "Righteous";
+}
+body{
+    background-image: url(imagens/backgroundInicio.jpg);
+    object-fit: cover;
+    padding: 0;
+    margin:  0;
+}
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(150, 204, 255, 0.573);
+    height: 100px;
+    padding: 10px 0 10px 0;
+}
+h1{
+    text-align: center;
+    font-size: 5em;
+}
+div{
+    margin: 50px 10% 0 10%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 10%;
+}
+span{
+    font-size: 5vw;
+    font-weight: bold;
+}
+p{
+    font-size: 1.7em;
+    color: rgb(37, 72, 21);
+    filter: drop-shadow(0 0 1px white
+    );
+}
+a{
+    text-decoration: none;
+    color: black;
+    /* background-color: aquamarine; */
+    width: 50%;
+    /* height: 200px; */
+    padding: 10vh 1%;
+    transition: 0.7s ease-in-out;
+}
+a:hover{
+    filter: drop-shadow(1px 1px 20px white);
+    transform: scale(1.1);
+}
+a:nth-child(1){
+    background-color: rgba(55, 157, 194, 0.81);
+}
+a:nth-child(2){
+    background-color: rgba(2, 251, 143, 0.759);
+}
+@media (max-width: 768px) {
+    h1{
+      font-size: 3.5em;  
+    }
+    p{
+        font-size: 1.5em;
+    }
+}
+@media (max-width: 480px) {
+    h1{
+      font-size: 2.5em;  
+    }
+    p{
+        font-size: 1.2em;
+    }
+}

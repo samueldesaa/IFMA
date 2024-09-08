@@ -1,11 +1,77 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Número Mágico</title>
+    <link rel="stylesheet" href="padraoJogos.css">
+    <link rel="stylesheet" href="style3.css">
 </head>
+
 <body>
-    
+    <header>
+        <h1>Número Mágico</h1>
+        <a href="index.html">Voltar</a>
+    </header>
+    <form id="jogo" action="" onsubmit="verificar(event)">
+        <label for="iresposta">Digite um valor entre 0 e 50:</label>
+        <textarea type="text" name="resposta" id="iresposta"></textarea>
+        <button id="botao" type="submit">Verificar</button>
+    </form>
+    <form action="" id="fim">
+        <h2>Fim de jogo</h2>
+        <button type="submit">Jogar Novamente</button>
+    </form>
 </body>
+<script>
+    let numRand = Math.floor(Math.random() * 51);
+    let tentativas = 0;
+
+    let jogo = document.getElementById("jogo");
+
+    function atualizarCor() {
+        if (tentativas > 20) {
+            jogo.style.backgroundColor = "#f58c8c";
+        } else if (tentativas > 15) {
+            jogo.style.backgroundColor = "#faaa55";
+        } else if (tentativas > 10) {
+            jogo.style.backgroundColor = "#fccb58";
+        } else if (tentativas > 5) {
+            jogo.style.backgroundColor = "#fae764";
+        } else if (tentativas > 3) {
+            jogo.style.backgroundColor = "#e8f57f";
+        } else {
+            jogo.style.backgroundColor = "#89e67e";
+        }
+    }
+
+    atualizarCor();
+    function verificar(event) {
+        event.preventDefault();
+        let textarea = document.getElementById("iresposta");
+        let valor = parseInt(textarea.value);
+        let botao = document.getElementById("botao");
+        if (textarea.value == "") {
+            alert("Valor inválido");
+        } else {
+            tentativas++;
+            atualizarCor();
+            if (valor == numRand) {
+                alert(`Parabéns, você acertou em ${tentativas} tentativas`);
+                jogo.style.display = 'none';
+                document.getElementById("fim").style.display = 'Flex';
+            } else {
+                textarea.value = "";
+                textarea.focus();
+                if (numRand > valor) {
+                    alert("Número mágico é maior!");
+                } else {
+                    alert("Número mágico é menor!");
+                }
+            }
+        }
+    }
+</script>
+
 </html>
