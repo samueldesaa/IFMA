@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=h1, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <title>Document</title>
+</head>
+
+<body class=" is-flex is-align-items-center is-justify-content-center">
+    <form class="mt-6 box column is-3-desktop is-5-tablet is-8-mobile">
+        <p class="is-size-3 p-4 has-text-weight-semibold has-text-centered">Calcular IMC</p>
+        <div class="field">
+            <label class="label has-text-weight-bold" for="peso">Peso(kg):</label>
+            <div class="control">
+                <input class="input" type="number" id="peso" placeholder="Ex.: 70" required focus />
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label has-text-weight-bold" for="altura">Altura(m):</label>
+            <div class="control">
+                <input class="input" type="number" id="altura" step=0.01 placeholder="Ex.: 1.75" required />
+            </div>
+        </div>
+
+        <button class="has-text-white button is-primary column is-12-mobile is-12" id="calcularButton">Calcular IMC</button>
+        <div id="resultado" class="has-text-centered p-4"></div>
+    </form>
+</body>
+
+<script>
+    const pesoInput = document.getElementById('peso');
+    const alturaInput = document.getElementById('altura');
+    const calcularButton = document.getElementById('calcularButton');
+    const resultadoDiv = document.getElementById('resultado');
+
+    const calcularIMC = (peso, altura) => peso / (altura * altura);
+
+    const classificarIMC = (imc) => {
+        if (imc < 18.5) return "Baixo peso";
+        if (imc >= 18.5 && imc < 24.9) return "Peso normal";
+        if (imc >= 25 && imc < 29.9) return "Sobrepeso";
+        if (imc >= 30 && imc < 34.9) return "Obesidade grau I";
+        if (imc >= 35 && imc < 39.9) return "Obesidade grau II";
+        return "Obesidade grau III"
+    }
+
+    calcularButton.addEventListener('click', (event) => {
+        event.preventDefault();  // Previne o envio do formulário e o recarregamento da página
+
+        const peso = parseFloat(pesoInput.value);
+        const altura = parseFloat(alturaInput.value);
+
+        if (!peso || !altura || altura <= 0) {
+            resultadoDiv.textContent = "Por favor, insira valores válidos para peso e altura.";
+            return;
+        }
+
+        const imc = calcularIMC(peso, altura).toFixed(2);
+        const classificacao = classificarIMC(imc);
+
+        resultadoDiv.innerHTML = `Seu IMC é <strong>${imc}</strong> (${classificacao}).`;
+    });
+</script>
+
+</html>
