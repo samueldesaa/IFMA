@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Crochê</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Righteous&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div>
+        <img class="topo"
+            src="https://img.freepik.com/fotos-gratis/maos-de-mulher-fazendo-trabalho-de-trico-em-casa_1150-17414.jpg?t=st=1733020132~exp=1733023732~hmac=53ee32d0284bea4b95e03a25ca1fe639a37d83fc218c2a700d439e8f50af8ede&w=996">
+        <h1>Curso de Crochê</h1>
+        <span><button id="open" type="button" onclick="openSide()">☰</button></span>
+    </div>
+    <div id="sidebar">
+        <span><button id="close" type="button" onclick="closeSide()">X</button></span>
+        <details>
+            <summary>Introdução e Fundamentos</summary>
+            <ul>
+                <li><a href="tipos-de-agulhas-e-linhas.html">Tipos de agulhas e linhas</a></li>
+                <li><a href="como-segurar-a-agulha-e-a-linha.html">Como segurar a agulha e a linha</a></li>
+            </ul>
+        </details>
+        <details>
+            <summary>Primeiros Pontos e Técnicas</summary>
+            <ul>
+                <li><a href="pontos-basicos.html">Pontos básicos (pb, pa)</a></li>
+                <li><a href="aumentos-e-diminuicoes.html">Aumentos e diminuições</a></li>
+            </ul>
+        </details>
+        <details>
+            <summary>Projetos e Personalização</summary>
+            <ul>
+                <li><a href="graficos-simples.html">Gráficos simples</a></li>
+                <li><a href="pecas-decorativas.html">Peças decorativas</a></li>
+            </ul>
+        </details>
+        <details>
+            <summary>Acabamento e Dicas</summary>
+            <ul>
+                <li><a href="arremate-e-costura.html">Arremate e costura</a></li>
+                <li><a href="pratica-e-workshops.html">Prática e workshops</a></li>
+            </ul>
+        </details>
+    </div>
+    <div class="content">
+        <h2>Bem-vindo ao Curso de Crochê</h2>
+        <p>
+            Aprender crochê é uma jornada criativa que combina arte e habilidade manual.
+            Aqui você encontrará tudo o que precisa para começar ou aperfeiçoar suas técnicas, desde os fundamentos até
+            projetos avançados.
+        </p>
+        <img class="ilustracao full"
+            src="https://www.artesanatopassoapassoja.com.br/wp-content/uploads/2021/03/Agulha-de-croche-para-iniciantes.jpg"
+            alt="Agulhas e linhas de crochê">
+        <section>
+            <h3>Por onde começar?</h3>
+            <p>
+                Nosso curso está dividido em módulos, organizados para facilitar sua aprendizagem:
+            </p>
+            <ul>
+                <li><strong>Introdução e Fundamentos:</strong> Conheça os materiais e as técnicas básicas.</li>
+                <li><strong>Primeiros Pontos:</strong> Domine os pontos essenciais para criar peças incríveis.</li>
+                <li><strong>Projetos:</strong> Explore gráficos e produza suas primeiras criações personalizadas.</li>
+                <li><strong>Acabamento:</strong> Dicas para finalizar suas peças com perfeição.</li>
+            </ul>
+        </section>
+        <section>
+            <h3>O que você vai precisar</h3>
+            <ul>
+                <li>Agulhas de crochê de diferentes tamanhos;</li>
+                <li>Linhas ou fios de sua escolha;</li>
+                <li>Marcadores de pontos (opcional);</li>
+                <li>Uma boa dose de criatividade e paciência!</li>
+            </ul>
+            <img class="ilustracao umTerco" 
+                src="https://www.armarinhosaojose.com.br/octopus/design/images/94/products/o/kit-agulhas-croche-alum-color-ch096-14und.jpg">
+            <img class="ilustracao umTerco"  src="https://http2.mlstatic.com/D_NQ_NP_930254-MLB47902813750_102021-O.webp">
+            <img class="ilustracao umTerco" 
+                src="https://cdn.awsli.com.br/600x700/2754/2754472/produto/288296886/2-2cu1pok6ta.png">
+        </section>
+        <section>
+            <h3>Benefícios do crochê</h3>
+            <p>
+                Além de criar peças únicas, o crochê é uma excelente forma de relaxar, melhorar a coordenação motora e
+                desenvolver habilidades artísticas.
+                Compartilhe suas criações com amigos e familiares e descubra o prazer de transformar linhas em arte.
+            </p>
+            <img class="ilustracao umTerco" src="https://ae-pic-a1.aliexpress-media.com/kf/Ha21f84625b954954bcbc7c0b65a868b7m/Conjunto-de-duas-pe-as-de-croch-vestido-de-praia-de-ver-o-sexy-feminino-top.jpg_640x640Q90.jpg_.webp"
+                alt="Peça colorida de crochê">
+            <img class="ilustracao umTerco" src="https://images.tcdn.com.br/img/img_prod/1096395/kit_cozinha_croche_3_pecas_julitex_4475_1_55cf1ce8fad9ee4f888a7ebf8d8231a1.jpg"
+                alt="Peça colorida de crochê">
+            <img class="ilustracao umTerco" src="https://tecendovidas.com/wp-content/uploads/2020/05/stitch_pattern-1-1024x957.jpg"
+                alt="Peça colorida de crochê">
+        </section>
+    </div>
+    <footer>
+        <p>Desenvolvido por Samuel Chaves e Franciele</p>
+    </footer>
+    <script>
+        function closeSide() {
+            document.getElementById('sidebar').style.width = "0px";
+        }
+        function openSide() {
+            document.getElementById('sidebar').style.width = "40%";
+        }
+    </script>
+</body>
+
+</html>

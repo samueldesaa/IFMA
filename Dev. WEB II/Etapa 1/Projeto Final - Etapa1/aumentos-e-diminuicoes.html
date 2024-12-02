@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Crochê</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Righteous&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div>
+        <img class="topo"
+            src="https://img.freepik.com/fotos-gratis/maos-de-mulher-fazendo-trabalho-de-trico-em-casa_1150-17414.jpg?t=st=1733020132~exp=1733023732~hmac=53ee32d0284bea4b95e03a25ca1fe639a37d83fc218c2a700d439e8f50af8ede&w=996"
+            alt="Imagem de uma mulher fazendo crochê">
+        <h1>Curso de Crochê</h1>
+        <span><button id="open" type="button" onclick="openSide()">☰</button></span>
+    </div>
+    <div id="sidebar">
+        <span><button id="close" type="button" onclick="closeSide()">X</button></span>
+        <details>
+            <summary>Introdução e Fundamentos</summary>
+            <ul>
+                <li><a href="tipos-de-agulhas-e-linhas.html">Tipos de agulhas e linhas</a></li>
+                <li><a href="como-segurar-a-agulha-e-a-linha.html">Como segurar a agulha e a linha</a></li>
+            </ul>
+        </details>
+        <details>
+            <summary>Primeiros Pontos e Técnicas</summary>
+            <ul>
+                <li><a href="pontos-basicos.html">Pontos básicos (pb, pa)</a></li>
+                <li><a href="aumentos-e-diminuicoes.html">Aumentos e diminuições</a></li>
+            </ul>
+        </details>
+        <details>
+            <summary>Projetos e Personalização</summary>
+            <ul>
+                <li><a href="graficos-simples.html">Gráficos simples</a></li>
+                <li><a href="pecas-decorativas.html">Peças decorativas</a></li>
+            </ul>
+        </details>
+        <details>
+            <summary>Acabamento e Dicas</summary>
+            <ul>
+                <li><a href="arremate-e-costura.html">Arremate e costura</a></li>
+                <li><a href="pratica-e-workshops.html">Prática e workshops</a></li>
+            </ul>
+        </details>
+    </div>
+    <div class="content">
+        <h2>Aumentos e Diminuições no Crochê</h2>
+        <p>
+            Aumentos e diminuições são técnicas essenciais no crochê para dar forma às peças e criar efeitos
+            interessantes. Elas são usadas para ajustar o tamanho de um trabalho, como ao fazer um círculo ou ajustar
+            a largura de um projeto.
+        </p>
+        <img class="ilustracao" style="object-fit: cover;object-position: top;width: 40%;height: 300px;"
+            src="https://hnsartesanato.com/wp-content/uploads/2022/11/Screenshot_20221119-144451_Samsung-Internet-780x1024.jpg"
+            alt="Amostra de crochê com aumento e diminuição">
+        <section>
+            <h3>Aumento</h3>
+            <p>
+                O aumento é feito adicionando pontos extras em um único ponto ou espaço. É utilizado para expandir a
+                largura ou o diâmetro de uma peça, como em círculos ou quando queremos aumentar a base de uma peça.
+                Veja como fazer um aumento:
+            </p>
+            <ol>
+                <li>Faça uma laçada e insira a agulha no ponto desejado.</li>
+                <li>Repita a mesma operação no mesmo ponto, criando dois pontos no mesmo espaço.</li>
+                <li>Continue fazendo os aumentos conforme a necessidade do seu projeto.</li>
+            </ol>
+            <img src="aumento.gif" alt="Ilustração de aumento no crochê">
+            <legend>Canal do Youtube: Aprendendo Crochê</legend>
+        </section>
+        <section>
+            <h3>Diminuição</h3>
+            <p>
+                A diminuição é feita para reduzir o número de pontos e ajustar o tamanho da peça, sendo útil para
+                modelar ou fechar a peça. Veja como fazer uma diminuição:
+            </p>
+            <ol>
+                <li>Insira a agulha no primeiro ponto e faça uma laçada.</li>
+                <li>Insira a agulha no segundo ponto e faça uma laçada novamente.</li>
+                <li>Com três pontos na agulha, faça uma laçada e puxe o fio por todos os três pontos.</li>
+            </ol>
+            <img src="diminuição.gif" alt="Ilustração de diminuição no crochê">
+            <legend>Canal do Youtube: Aprendendo Crochê</legend>
+        </section>
+        <section>
+            <h3>Como Praticar</h3>
+            <p>
+                Para praticar aumentos e diminuições, você pode tentar fazer uma amostra circular, alternando entre
+                aumentos e diminuições para criar formas variadas. Experimente criar um círculo ou um quadrado, fazendo
+                aumentos a cada volta, e depois tente diminuir de forma controlada.
+            </p>
+            <p>
+                Comece com 6 pontos baixos em um anel mágico. A cada volta, faça aumentos até o número desejado de
+                pontos. Depois, faça diminuições para formar um fechamento ou para dar a forma final ao trabalho.
+            </p>
+            <iframe width="100%" height="480" src="https://www.youtube.com/embed/j2aWuibgLSg"
+                title="CROCHÊ PARA INICIANTES | Aumentos e diminuições no crochê" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+    </div>
+    <footer>
+        <p>Desenvolvido por Samuel Chaves e Franciele</p>
+    </footer>
+    <script>
+        function closeSide() {
+            document.getElementById('sidebar').style.width = "0px";
+        }
+        function openSide() {
+            document.getElementById('sidebar').style.width = "40%";
+        }
+    </script>
+</body>
+
+</html>

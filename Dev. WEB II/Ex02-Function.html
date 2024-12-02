@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <title>Desafio 04</title>
+    <style>
+        .section,
+        .box {
+            background-color: #edffe2 !important;
+        }
+    </style>
+</head>
+
+<body class="columns is-centered">
+    <section class="section m-3 column is-6 mt-6">
+        <h2 class="title is-3 has-text-centered">Portal de Posts</h2>
+        <div id="post1" class="box"></div>
+        <div id="post2" class="box"></div>
+        <button id="botao1" class="button" onclick="volta()" disabled>Anterior</button>
+        <button id="botao2" class="button is-pulled-right" onclick="proximo()">Próximo</button>
+    </section>
+    <script>
+        let numAtualPost = 0;
+
+        async function buscarDados() {
+            try {
+                let resposta;
+                let obj;
+                let dados = {};
+                for (let i = 1; i < 11; i++) {
+                    resposta = await fetch(`https://jsonplaceholder.typicode.com/posts/${i}`);
+                    obj = await resposta.json();
+                    dados[i - 1] = {
+                        id: obj.id,
+                        title: obj.title,
+                        body: obj.body
+                    }
+                }
+
+                const conteudo1 = document.getElementById('post1');
+                const conteudo2 = document.getElementById('post2');
+
+                conteudo1.innerHTML = `
+                <p><strong>ID:</strong> ${dados[numAtualPost].id}</p><br>
+                <p><strong>Título:</strong> ${dados[numAtualPost].title}</p><br>
+                <p><strong>Conteúdo:</strong> ${dados[numAtualPost].body}</p>
+                `;
+                conteudo2.innerHTML = `
+                <p><strong>ID:</strong> ${dados[numAtualPost + 1].id}</p><br>
+                <p><strong>Título:</strong> ${dados[numAtualPost + 1].title}</p><br>
+                <p><strong>Conteúdo:</strong> ${dados[numAtualPost + 1].body}</p>
+                `;
+                const b1 = document.getElementById('botao1');
+                const b2 = document.getElementById('botao2');
+
+                if (numAtualPost == 0) {
+                    b1.setAttribute('disabled', true);
+                    b2.removeAttribute('disabled');
+                } else if (numAtualPost == 8) {
+                    b2.setAttribute('disabled', true);
+                } else {
+                    b1.removeAttribute('disabled');
+                    b2.removeAttribute('disabled');
+                }
+            } catch (erro) {
+                console.error("Erro ao buscar dados:", erro);
+                document.getElementById('post1').textContent = "Erro ao carregar dados.";
+                document.getElementById('post2').textContent = "Erro ao carregar dados.";
+            }
+        }
+        buscarDados();
+        function volta() {
+            if (numAtualPost > 0) {
+                numAtualPost -= 2;
+                buscarDados();
+            }
+        }
+        function proximo() {
+            if (numAtualPost < 8) {
+                numAtualPost += 2;
+                buscarDados();
+            }
+        }
+    </script>
+</body>
+
+</html>

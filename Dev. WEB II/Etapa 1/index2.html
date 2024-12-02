@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="perfil">
+            <img src="IMG_4013.webp" alt="">
+            <p>Fulaninho Costa</p>
+        </div>
+        <a href="#">Início</a>
+        <a href="#">Shorts</a>
+        <a href="#">Inscrições</a>
+        <hr>
+        <a href="#">Histórico</a>
+        <a href="#">Playlists</a>
+        <a href="#">Seus vídeos</a>
+        <a href="#">Assistir mais tarde</a>
+        <a href="#">Vídeos com "Gostei"</a>
+        <hr>
+    </div>
+    <span onclick="openNav()">&#9776</span>
+    <div id="main">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Quisquam ex consequuntur amet id porro ut est iure repellendus
+            sed voluptas, quia dolorem laborum quo velit quam
+            doloribus dolorum at! Temporibus!</p>
+    </div>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("mySidenav").style.padding = "10px";
+        }
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("mySidenav").style.padding = "0px";
+        }
+    </script>
+</body>
+
+</html>

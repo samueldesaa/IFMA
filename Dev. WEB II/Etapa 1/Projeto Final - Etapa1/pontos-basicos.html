@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Crochê</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Righteous&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div>
+        <img class="topo"
+            src="https://img.freepik.com/fotos-gratis/maos-de-mulher-fazendo-trabalho-de-trico-em-casa_1150-17414.jpg?t=st=1733020132~exp=1733023732~hmac=53ee32d0284bea4b95e03a25ca1fe639a37d83fc218c2a700d439e8f50af8ede&w=996"
+            alt="Imagem de uma mulher fazendo crochê">
+        <h1>Curso de Crochê</h1>
+        <span><button id="open" type="button" onclick="openSide()">☰</button></span>
+    </div>
+    <div id="sidebar">
+        <span><button id="close" type="button" onclick="closeSide()">X</button></span>
+        <details>
+            <summary>Introdução e Fundamentos</summary>
+            <ul>
+                <li><a href="tipos-de-agulhas-e-linhas.html">Tipos de agulhas e linhas</a></li>
+                <li><a href="como-segurar-a-agulha-e-a-linha.html">Como segurar a agulha e a linha</a></li>
+            </ul>
+        </details>
+        <details>
+            <summary>Primeiros Pontos e Técnicas</summary>
+            <ul>
+                <li><a href="pontos-basicos.html">Pontos básicos (pb, pa)</a></li>
+                <li><a href="aumentos-e-diminuicoes.html">Aumentos e diminuições</a></li>
+            </ul>
+        </details>
+        <details>
+            <summary>Projetos e Personalização</summary>
+            <ul>
+                <li><a href="graficos-simples.html">Gráficos simples</a></li>
+                <li><a href="pecas-decorativas.html">Peças decorativas</a></li>
+            </ul>
+        </details>
+        <details>
+            <summary>Acabamento e Dicas</summary>
+            <ul>
+                <li><a href="arremate-e-costura.html">Arremate e costura</a></li>
+                <li><a href="pratica-e-workshops.html">Prática e workshops</a></li>
+            </ul>
+        </details>
+    </div>
+    <div class="content">
+        <h2>Pontos Básicos</h2>
+        <p>
+            No crochê, os pontos básicos são fundamentais para começar a criar lindas peças. Vamos aprender agora
+            os dois pontos essenciais: o ponto baixo (pb) e o ponto alto (pa).
+        </p>
+        <img class="ilustracao" style="object-fit: cover;object-position: top;width: 40%;height: 300px;"
+            src="https://hnsartesanato.com/wp-content/uploads/2022/11/Screenshot_20221119-144451_Samsung-Internet-780x1024.jpg"
+            alt="Agulhas e linhas de crochê">
+        <section>
+            <h3>Ponto Baixo (pb)</h3>
+            <p>
+                O ponto baixo é um dos pontos mais simples e é utilizado em várias peças, como tapetes, toalhas e
+                peças de vestuário. Para fazê-lo, você deve:
+            </p>
+            <ol>
+                <li>Insira a agulha na corrente ou ponto desejado.</li>
+                <li>Laçada e puxe o fio, ficando com dois pontos na agulha.</li>
+                <li>Laçada novamente e puxe o fio por ambos os pontos na agulha.</li>
+            </ol>
+            <img src="Ponto Baixo.gif">
+            <legend>Canal do Youtube: Aprendendo Crochê</legend>
+            </img>
+        </section>
+        <section>
+            <h3>Ponto Alto (pa)</h3>
+            <p>
+                O ponto alto é mais alto que o ponto baixo e é frequentemente usado em peças como blusas, mantas
+                e xales. O passo a passo para o ponto alto é:
+            </p>
+            <ol>
+                <li>Faça uma laçada e insira a agulha no ponto ou corrente desejada.</li>
+                <li>Laçada novamente e puxe o fio, ficando com três pontos na agulha.</li>
+                <li>Laçada mais uma vez e puxe o fio por dois pontos, ficando com dois pontos na agulha.</li>
+                <li>Faça a última laçada e puxe o fio pelos dois pontos restantes na agulha.</li>
+            </ol>
+            <img src="Ponto Alto.gif">
+            <legend>Canal do Youtube: Aprendendo Crochê</legend>
+            </img>
+        </section>
+        <section>
+            <h3>Como praticar</h3>
+            <p>
+                A melhor maneira de dominar os pontos básicos é praticar. Tente fazer uma amostra com pontos baixos e
+                altos, criando um quadrado simples.
+            </p>
+            <p>
+                Comece com 10 correntinhas, depois trabalhe um ponto baixo em cada ponto da corrente. Para o ponto
+                alto, faça o mesmo, mas sempre faça uma laçada antes de cada ponto.
+            </p>
+            <iframe width="100%" height="480" src="https://www.youtube.com/embed/j2aWuibgLSg"
+                title="CROCHÊ PARA INICIANTES | Correntinha, ponto alto e ponto baixo" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+    </div>
+    <footer>
+        <p>Desenvolvido por Samuel Chaves e Franciele</p>
+    </footer>
+    <script>
+        function closeSide() {
+            document.getElementById('sidebar').style.width = "0px";
+        }
+        function openSide() {
+            document.getElementById('sidebar').style.width = "40%";
+        }
+    </script>
+</body>
+
+</html>
