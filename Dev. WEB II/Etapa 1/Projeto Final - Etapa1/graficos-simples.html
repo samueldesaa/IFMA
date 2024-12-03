@@ -9,16 +9,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Righteous&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="externos/styles.css">
 </head>
-
+<style>
+    #sidebar {
+        width: 40%;
+        left: 100%;
+    }
+</style>
 <body>
     <div>
         <img class="topo"
             src="https://img.freepik.com/fotos-gratis/maos-de-mulher-fazendo-trabalho-de-trico-em-casa_1150-17414.jpg?t=st=1733020132~exp=1733023732~hmac=53ee32d0284bea4b95e03a25ca1fe639a37d83fc218c2a700d439e8f50af8ede&w=996"
             alt="Imagem de uma mulher fazendo crochê">
         <h1>Curso de Crochê</h1>
-        <span><button id="open" type="button" onclick="openSide()">☰</button></span>
+        <nav>
+            <span><button id="open" type="button" onclick="openSide()">☰</button></span>
+            <span><a id="home" href="index.html"><img src="midia/iconHome.png" alt=""></a></span>
+        </nav>
     </div>
     <div id="sidebar">
         <span><button id="close" type="button" onclick="closeSide()">X</button></span>
@@ -99,10 +107,10 @@
     </footer>
     <script>
         function closeSide() {
-            document.getElementById('sidebar').style.width = "0px";
+            document.getElementById('sidebar').style.transform = "translateX(40vw)";
         }
         function openSide() {
-            document.getElementById('sidebar').style.width = "40%";
+            document.getElementById('sidebar').style.transform = "translateX(-40vw)";
         }
     </script>
 </body>

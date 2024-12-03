@@ -9,18 +9,78 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Righteous&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="externos/styles.css">
 </head>
 
+<style>
+    #sidebar {
+        width: 50px;
+        overflow: hidden;
+    }
+
+    summary>span {
+        font-size: 50px;
+    }
+
+    .pagina {
+        transform: translateX(40px);
+    }
+
+    h1 {
+        font-size: 60px;
+        top: 20px;
+    }
+    .icones {
+        width: 40px;
+        background-color: #F3E2C0;
+        color: white;
+        padding: 4% 0 0 0;
+        z-index: 1;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    .icones>span{
+        font-size: 30px;
+        background-color: #A18755;
+    }
+    
+    #sidebar {
+        width: 0;
+        top: 0;
+        left: 40px;
+    }
+    summary{
+        margin: 10px;
+    }
+    @media screen and (max-width:700px){
+        .icones{
+            padding: 10% 0 0 0;
+        }
+        .icones>span{
+            margin-top: 30px;
+        }
+        summary{
+            margin: 0px;
+        }
+    }
+</style>
+
 <body>
-    <div>
-        <img class="topo"
-            src="https://img.freepik.com/fotos-gratis/maos-de-mulher-fazendo-trabalho-de-trico-em-casa_1150-17414.jpg?t=st=1733020132~exp=1733023732~hmac=53ee32d0284bea4b95e03a25ca1fe639a37d83fc218c2a700d439e8f50af8ede&w=996"
-            alt="Imagem de uma mulher fazendo crochê">
-        <h1>Curso de Crochê</h1>
-        <span><button id="open" type="button" onclick="openSide()">☰</button></span>
-    </div>
     <div id="sidebar">
+        <div class="icones">
+            <span>📚</span>
+            <br>
+            <br>
+            <span>🪡</span>
+            <br>
+            <br>
+            <span>🧶</span>
+            <br>
+            <br>
+            <span>💡</span>
+        </div>
         <span><button id="close" type="button" onclick="closeSide()">X</button></span>
         <details>
             <summary>Introdução e Fundamentos</summary>
@@ -51,31 +111,44 @@
             </ul>
         </details>
     </div>
-    <div class="content">
-        <h2>Aumentos e Diminuições no Crochê</h2>
-        <p>
-            Aumentos e diminuições são técnicas essenciais no crochê para dar forma às peças e criar efeitos
-            interessantes. Elas são usadas para ajustar o tamanho de um trabalho, como ao fazer um círculo ou ajustar
-            a largura de um projeto.
-        </p>
-        <img class="ilustracao"
-            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhN2jdYBmqKsc9YiPEcldxeCIkax7EVSmY3he75mEa_AunNMsRTrz44mvJW5Hzhx3G7ziofi5I-RI-_IZ_gujX2RPJI-4xCMg83YpE-APJBa5Bm3fZ38ckNFktqTmXhjLslxoJVZA/s1600/PASSO-A-PASSO+PONTO+ONDAS+DE+CROCH%C3%8A+44+a.JPG"
-            alt="Amostra de crochê com aumento e diminuição">
-        <section>
-            <h3>Aumento</h3>
+    <div class="pagina">
+        <div>
+            <img class="topo"
+                src="https://img.freepik.com/fotos-gratis/maos-de-mulher-fazendo-trabalho-de-trico-em-casa_1150-17414.jpg?t=st=1733020132~exp=1733023732~hmac=53ee32d0284bea4b95e03a25ca1fe639a37d83fc218c2a700d439e8f50af8ede&w=996"
+                alt="Imagem de uma mulher fazendo crochê">
+            <h1>Curso de Crochê</h1>
+            <nav>
+                <span><button id="open" type="button" onclick="openSide()">☰</button></span>
+                <span><a id="home" href="index.html"><img src="midia/iconHome.png" alt=""></a></span>
+            </nav>
+        </div>
+
+        <div class="content">
+            <h2>Aumentos e Diminuições no Crochê</h2>
             <p>
-                O aumento é feito adicionando pontos extras em um único ponto ou espaço. É utilizado para expandir a
-                largura ou o diâmetro de uma peça, como em círculos ou quando queremos aumentar a base de uma peça.
-                Veja como fazer um aumento:
+                Aumentos e diminuições são técnicas essenciais no crochê para dar forma às peças e criar efeitos
+                interessantes. Elas são usadas para ajustar o tamanho de um trabalho, como ao fazer um círculo ou
+                ajustar
+                a largura de um projeto.
             </p>
-            <ol>
-                <li>Faça uma laçada e insira a agulha no ponto desejado.</li>
-                <li>Repita a mesma operação no mesmo ponto, criando dois pontos no mesmo espaço.</li>
-                <li>Continue fazendo os aumentos conforme a necessidade do seu projeto.</li>
-            </ol>
-            <img src="AumentaAlto.gif" alt="Ilustração de aumento no crochê">
-            <legend>Canal do Youtube: 
-                Ester Marnet Crochê</legend>
+            <img class="ilustracao"
+                src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhN2jdYBmqKsc9YiPEcldxeCIkax7EVSmY3he75mEa_AunNMsRTrz44mvJW5Hzhx3G7ziofi5I-RI-_IZ_gujX2RPJI-4xCMg83YpE-APJBa5Bm3fZ38ckNFktqTmXhjLslxoJVZA/s1600/PASSO-A-PASSO+PONTO+ONDAS+DE+CROCH%C3%8A+44+a.JPG"
+                alt="Amostra de crochê com aumento e diminuição">
+            <section>
+                <h3>Aumento</h3>
+                <p>
+                    O aumento é feito adicionando pontos extras em um único ponto ou espaço. É utilizado para expandir a
+                    largura ou o diâmetro de uma peça, como em círculos ou quando queremos aumentar a base de uma peça.
+                    Veja como fazer um aumento:
+                </p>
+                <ol>
+                    <li>Faça uma laçada e insira a agulha no ponto desejado.</li>
+                    <li>Repita a mesma operação no mesmo ponto, criando dois pontos no mesmo espaço.</li>
+                    <li>Continue fazendo os aumentos conforme a necessidade do seu projeto.</li>
+                </ol>
+                <img src="midia/AumentaAlto.gif" alt="Ilustração de aumento no crochê">
+                <legend>Canal do Youtube:
+                    Ester Marnet Crochê</legend>
             </section>
             <section>
                 <h3>Diminuição</h3>
@@ -88,26 +161,31 @@
                     <li>Insira a agulha no segundo ponto e faça uma laçada novamente.</li>
                     <li>Com três pontos na agulha, faça uma laçada e puxe o fio por todos os três pontos.</li>
                 </ol>
-                <img src="DiminuiAlto.gif" alt="Ilustração de diminuição no crochê">
+                <img src="midia/DiminuiAlto.gif" alt="Ilustração de diminuição no crochê">
                 <legend>Canal do Youtube: JNY Crochê</legend>
-        </section>
-        <section>
-            <h3>Como Praticar</h3>
-            <p>
-                Para praticar aumentos e diminuições, você pode tentar fazer uma amostra circular, alternando entre
-                aumentos e diminuições para criar formas variadas. Experimente criar um círculo ou um quadrado, fazendo
-                aumentos a cada volta, e depois tente diminuir de forma controlada.
-            </p>
-            <p>
-                Comece com 6 pontos baixos em um anel mágico. A cada volta, faça aumentos até o número desejado de
-                pontos. Depois, faça diminuições para formar um fechamento ou para dar a forma final ao trabalho.
-            </p>
-            <iframe width="100%" height="480" src="https://www.youtube.com/embed/HxmIyzG8XqI" title="Como fazer Aumento e Diminuição - Começando no Amigurumi" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </section>
+            </section>
+            <section>
+                <h3>Como Praticar</h3>
+                <p>
+                    Para praticar aumentos e diminuições, você pode tentar fazer uma amostra circular, alternando entre
+                    aumentos e diminuições para criar formas variadas. Experimente criar um círculo ou um quadrado,
+                    fazendo
+                    aumentos a cada volta, e depois tente diminuir de forma controlada.
+                </p>
+                <p>
+                    Comece com 6 pontos baixos em um anel mágico. A cada volta, faça aumentos até o número desejado de
+                    pontos. Depois, faça diminuições para formar um fechamento ou para dar a forma final ao trabalho.
+                </p>
+                <iframe width="100%" height="480" src="https://www.youtube.com/embed/HxmIyzG8XqI"
+                    title="Como fazer Aumento e Diminuição - Começando no Amigurumi" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </section>
+        </div>
+        <footer>
+            <p>Desenvolvido por Samuel Chaves e Franciele</p>
+        </footer>
     </div>
-    <footer>
-        <p>Desenvolvido por Samuel Chaves e Franciele</p>
-    </footer>
     <script>
         function closeSide() {
             document.getElementById('sidebar').style.width = "0px";
