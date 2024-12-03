@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Crochê</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Righteous&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div>
+        <img class="topo"
+            src="https://img.freepik.com/fotos-gratis/maos-de-mulher-fazendo-trabalho-de-trico-em-casa_1150-17414.jpg?t=st=1733020132~exp=1733023732~hmac=53ee32d0284bea4b95e03a25ca1fe639a37d83fc218c2a700d439e8f50af8ede&w=996"
+            alt="Imagem de uma mulher fazendo crochê">
+        <h1>Curso de Crochê</h1>
+        <span><button id="open" type="button" onclick="openSide()">☰</button></span>
+    </div>
+    <div id="sidebar">
+        <span><button id="close" type="button" onclick="closeSide()">X</button></span>
+        <details>
+            <summary>Introdução e Fundamentos</summary>
+            <ul>
+                <li><a href="tipos-de-agulhas-e-linhas.html">Tipos de agulhas e linhas</a></li>
+                <li><a href="como-segurar-a-agulha-e-a-linha.html">Como segurar a agulha e a linha</a></li>
+            </ul>
+        </details>
+        <details>
+            <summary>Primeiros Pontos e Técnicas</summary>
+            <ul>
+                <li><a href="pontos-basicos.html">Pontos básicos (pb, pa)</a></li>
+                <li><a href="aumentos-e-diminuicoes.html">Aumentos e diminuições</a></li>
+            </ul>
+        </details>
+        <details>
+            <summary>Projetos e Personalização</summary>
+            <ul>
+                <li><a href="graficos-simples.html">Gráficos simples</a></li>
+                <li><a href="pecas-decorativas.html">Peças decorativas</a></li>
+            </ul>
+        </details>
+        <details>
+            <summary>Acabamento e Dicas</summary>
+            <ul>
+                <li><a href="arremate-e-costura.html">Arremate e costura</a></li>
+                <li><a href="pratica-e-workshops.html">Prática e workshops</a></li>
+            </ul>
+        </details>
+    </div>
+    <div class="content">
+        <h2>Peças Decorativas</h2>
+        <p>
+            O crochê é uma técnica perfeita para criar peças decorativas que trazem um toque único e artesanal para qualquer ambiente. Seja para decorar sua casa ou presentear alguém especial, as possibilidades são infinitas.
+        </p>
+        <img class="ilustracao"
+            src="https://img.freepik.com/fotos-premium/toalha-de-croche-redonda-em-tom-pastel-no-fundo-de-madeira-decoracao-caseira-feita-a-mao_200091-300.jpg"
+            alt="Toalha de crochê redonda em tom pastel">
+        <section>
+            <h3>Ideias de Peças Decorativas</h3>
+            <ul>
+                <li><strong>Toalhas de mesa:</strong> Ideais para embelezar mesas de jantar e café.</li>
+                <li><strong>Almofadas:</strong> Crie capas únicas com padrões coloridos e texturas variadas.</li>
+                <li><strong>Cortinas:</strong> Adicione um toque delicado às janelas com detalhes de crochê.</li>
+                <li><strong>Tapetes:</strong> Faça peças que combinam com a decoração da sala, quarto ou banheiro.</li>
+                <li><strong>Mandalas:</strong> Lindas para pendurar na parede ou usar como suporte de pratos.</li>
+            </ul>
+        </section>
+        <section>
+            <h3>Materiais e Dicas</h3>
+            <p>
+                Escolha materiais que combinem estética e funcionalidade. Linhas mais finas são ideais para trabalhos delicados, enquanto fios de barbante ou lã grossa são perfeitos para tapetes e almofadas. Veja algumas dicas:
+            </p>
+            <ul>
+                <li>Use cores que combinem com o ambiente onde a peça será usada.</li>
+                <li>Invista em acabamentos detalhados para maior sofisticação.</li>
+                <li>Prefira linhas laváveis e resistentes para peças de uso diário.</li>
+            </ul>
+        </section>
+        <section>
+            <h3>Como Começar</h3>
+            <p>
+                Para começar, escolha um projeto pequeno, como um sousplat ou um jogo americano. Utilize gráficos ou siga tutoriais em vídeo para entender o padrão. Trabalhe com calma e aproveite o processo criativo.
+            </p>
+        </section>
+    </div>
+    <footer>
+        <p>Desenvolvido por Samuel Chaves e Franciele</p>
+    </footer>
+    <script>
+        function closeSide() {
+            document.getElementById('sidebar').style.width = "0px";
+        }
+        function openSide() {
+            document.getElementById('sidebar').style.width = "40%";
+        }
+    </script>
+</body>
+
+</html>

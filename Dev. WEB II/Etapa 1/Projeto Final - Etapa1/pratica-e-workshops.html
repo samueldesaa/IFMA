@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Crochê</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Righteous&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div>
+        <img class="topo"
+            src="https://img.freepik.com/fotos-gratis/maos-de-mulher-fazendo-trabalho-de-trico-em-casa_1150-17414.jpg?t=st=1733020132~exp=1733023732~hmac=53ee32d0284bea4b95e03a25ca1fe639a37d83fc218c2a700d439e8f50af8ede&w=996"
+            alt="Mãos de uma mulher trabalhando em crochê">
+        <h1>Curso de Crochê</h1>
+        <span><button id="open" type="button" onclick="openSide()">☰</button></span>
+    </div>
+    <div id="sidebar">
+        <span><button id="close" type="button" onclick="closeSide()">X</button></span>
+        <details>
+            <summary>Introdução e Fundamentos</summary>
+            <ul>
+                <li><a href="tipos-de-agulhas-e-linhas.html">Tipos de agulhas e linhas</a></li>
+                <li><a href="como-segurar-a-agulha-e-a-linha.html">Como segurar a agulha e a linha</a></li>
+            </ul>
+        </details>
+        <details>
+            <summary>Primeiros Pontos e Técnicas</summary>
+            <ul>
+                <li><a href="pontos-basicos.html">Pontos básicos (pb, pa)</a></li>
+                <li><a href="aumentos-e-diminuicoes.html">Aumentos e diminuições</a></li>
+            </ul>
+        </details>
+        <details>
+            <summary>Projetos e Personalização</summary>
+            <ul>
+                <li><a href="graficos-simples.html">Gráficos simples</a></li>
+                <li><a href="pecas-decorativas.html">Peças decorativas</a></li>
+            </ul>
+        </details>
+        <details>
+            <summary>Acabamento e Dicas</summary>
+            <ul>
+                <li><a href="arremate-e-costura.html">Arremate e costura</a></li>
+                <li><a href="pratica-e-workshops.html">Prática e workshops</a></li>
+            </ul>
+        </details>
+    </div>
+    <div class="content">
+        <h2>Prática e Workshops de Crochê</h2>
+        <p>
+            A prática é fundamental para aprimorar suas habilidades no crochê, e os workshops são excelentes oportunidades para aprender novas técnicas, trocar experiências e se inspirar em outros artesãos.
+        </p>
+        <img class="ilustracao"
+            src="https://img.freepik.com/fotos-premium/grupo-de-mulheres-fazendo-aula-de-artesanato-juntas_260672-2592.jpg"
+            alt="Grupo de pessoas participando de um workshop de crochê">
+        <section>
+            <h3>Por que Participar de Workshops?</h3>
+            <p>
+                Workshops oferecem um ambiente colaborativo e motivador para aprender e compartilhar ideias. Os benefícios incluem:
+            </p>
+            <ul>
+                <li>Aprender novas técnicas e tendências do crochê.</li>
+                <li>Receber orientação de especialistas e professores.</li>
+                <li>Conhecer pessoas com interesses semelhantes e construir uma rede de contatos.</li>
+                <li>Experimentar projetos e materiais novos.</li>
+            </ul>
+        </section>
+        <section>
+            <h3>Como Praticar Crochê no Dia a Dia</h3>
+            <p>
+                Para aperfeiçoar suas habilidades, pratique regularmente. Aqui estão algumas sugestões:
+            </p>
+            <ul>
+                <li>Separe um tempo diário ou semanal para praticar.</li>
+                <li>Escolha projetos pequenos para treinar pontos específicos.</li>
+                <li>Experimente gráficos e esquemas simples para aumentar sua confiança.</li>
+                <li>Repita os mesmos padrões até ganhar fluidez.</li>
+            </ul>
+        </section>
+        <section>
+            <h3>Dicas para Workshops</h3>
+            <p>
+                Ao participar de um workshop, prepare-se para aproveitar ao máximo:
+            </p>
+            <ul>
+                <li>Leve seus materiais básicos, como agulhas e fios favoritos.</li>
+                <li>Tenha um caderno ou aplicativo para anotar dicas e aprendizados.</li>
+                <li>Participe ativamente, fazendo perguntas e interagindo com os outros participantes.</li>
+                <li>Depois do evento, pratique as técnicas aprendidas para fixar o conhecimento.</li>
+            </ul>
+        </section>
+    </div>
+    <footer>
+        <p>Desenvolvido por Samuel Chaves e Franciele</p>
+    </footer>
+    <script>
+        function closeSide() {
+            document.getElementById('sidebar').style.width = "0px";
+        }
+        function openSide() {
+            document.getElementById('sidebar').style.width = "40%";
+        }
+    </script>
+</body>
+
+</html>

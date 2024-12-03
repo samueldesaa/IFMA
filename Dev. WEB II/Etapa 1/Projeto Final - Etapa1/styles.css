@@ -43,7 +43,7 @@ details {
     background-color: #A18755;
 }
 
-legend{
+legend {
     text-align: center;
 }
 
@@ -58,6 +58,10 @@ ul {
     padding-left: 20px;
     background-color: rgba(3, 0, 0, 0.188);
     list-style-type: none;
+}
+
+section{
+    text-align: center;
 }
 
 li {
@@ -128,19 +132,21 @@ footer {
     font-size: 20px;
 }
 
-.full{
+.full {
     width: 100%;
 }
 
-.half{
+.half {
     display: inline !important;
     width: 49%;
 }
-.umTerco{
+
+.umTerco {
     display: inline !important;
     width: 32%;
 }
-.umQuarto{
+
+.umQuarto {
     display: inline !important;
     width: 24%;
 }

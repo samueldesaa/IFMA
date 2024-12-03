@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Crochê</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Righteous&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div>
+        <img class="topo"
+            src="https://img.freepik.com/fotos-gratis/maos-de-mulher-fazendo-trabalho-de-trico-em-casa_1150-17414.jpg?t=st=1733020132~exp=1733023732~hmac=53ee32d0284bea4b95e03a25ca1fe639a37d83fc218c2a700d439e8f50af8ede&w=996"
+            alt="Imagem de uma mulher fazendo crochê">
+        <h1>Curso de Crochê</h1>
+        <span><button id="open" type="button" onclick="openSide()">☰</button></span>
+    </div>
+    <div id="sidebar">
+        <span><button id="close" type="button" onclick="closeSide()">X</button></span>
+        <details>
+            <summary>Introdução e Fundamentos</summary>
+            <ul>
+                <li><a href="tipos-de-agulhas-e-linhas.html">Tipos de agulhas e linhas</a></li>
+                <li><a href="como-segurar-a-agulha-e-a-linha.html">Como segurar a agulha e a linha</a></li>
+            </ul>
+        </details>
+        <details>
+            <summary>Primeiros Pontos e Técnicas</summary>
+            <ul>
+                <li><a href="pontos-basicos.html">Pontos básicos (pb, pa)</a></li>
+                <li><a href="aumentos-e-diminuicoes.html">Aumentos e diminuições</a></li>
+            </ul>
+        </details>
+        <details>
+            <summary>Projetos e Personalização</summary>
+            <ul>
+                <li><a href="graficos-simples.html">Gráficos simples</a></li>
+                <li><a href="pecas-decorativas.html">Peças decorativas</a></li>
+            </ul>
+        </details>
+        <details>
+            <summary>Acabamento e Dicas</summary>
+            <ul>
+                <li><a href="arremate-e-costura.html">Arremate e costura</a></li>
+                <li><a href="pratica-e-workshops.html">Prática e workshops</a></li>
+            </ul>
+        </details>
+    </div>
+    <div class="content">
+        <h2>Gráficos Simples</h2>
+        <p>
+            Os gráficos de crochê são representações visuais das peças que desejamos criar, usando símbolos para indicar os pontos que devem ser feitos. Eles são ótimos para facilitar o entendimento de projetos e ajudar na criação de trabalhos complexos.
+        </p>
+        <img class="ilustracao"
+            src="https://artesademaocheia.com/wp-content/uploads/2019/09/como-ler-graficos-de-croche-passo-a-passo-1200x1064.jpg"
+            alt="Exemplo de gráfico de crochê">
+        <section>
+            <h3>O que é um Gráfico?</h3>
+            <p>
+                Um gráfico de crochê é um desenho que utiliza símbolos padronizados para representar pontos como correntinhas, pontos baixos, pontos altos e outros. Cada símbolo tem um significado, e a leitura do gráfico é feita da base para o topo.
+            </p>
+            <ul>
+                <li><strong>Círculo:</strong> Representa uma correntinha.</li>
+                <li><strong>“X” ou “+”:</strong> Indica ponto baixo.</li>
+                <li><strong>T:</strong> Representa ponto alto.</li>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL4J_1z8Jtd4qvUQyoWOuSH6Ld6LrEXpRAzQ&s" alt="">
+            </ul>
+        </section>
+        <section>
+            <h3>Como Ler Gráficos?</h3>
+            <p>
+                A leitura dos gráficos depende do formato do projeto:
+            </p>
+            <ul>
+                <li><strong>Gráficos Circulares:</strong> Comece do centro e siga em sentido horário.</li>
+                <li><strong>Gráficos Lineares:</strong> Leia de baixo para cima e alterne as direções em cada carreira.</li>
+                <img style="display: inline;" src="https://i.pinimg.com/236x/aa/d4/76/aad4768cad2bdfcb4396f6a0c3cc2b21.jpg" alt="">
+                <img class="half" src="https://www.meuatelierdecroche.com.br/wp-content/uploads/2020/04/4.png" alt="">
+            </ul>
+            <p>
+                Certifique-se de entender a legenda dos símbolos antes de iniciar o trabalho. Ela geralmente é fornecida junto ao gráfico.
+            </p>
+        </section>
+        <section>
+            <h3>Dicas para Praticar</h3>
+            <p>
+                Para iniciar, escolha gráficos simples, como flores ou quadrados. Pratique reproduzindo o padrão várias vezes até sentir confiança. Use uma linha de cor clara e uma agulha compatível para facilitar a visualização dos pontos.
+            </p>
+            <img class="full" src="https://i.pinimg.com/736x/b8/02/63/b8026328d363d9f4a2ed2f43a1a9541a.jpg" alt="">
+        </section>
+    </div>
+    <footer>
+        <p>Desenvolvido por Samuel Chaves e Franciele</p>
+    </footer>
+    <script>
+        function closeSide() {
+            document.getElementById('sidebar').style.width = "0px";
+        }
+        function openSide() {
+            document.getElementById('sidebar').style.width = "40%";
+        }
+    </script>
+</body>
+
+</html>
