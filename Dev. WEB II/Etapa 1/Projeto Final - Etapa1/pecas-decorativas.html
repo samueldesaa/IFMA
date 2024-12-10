@@ -9,19 +9,53 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Righteous&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="externos/styles.css">
 </head>
 
+<style>
+    h1 {
+        font-size: 40px;
+        top: 20px;
+    }
+
+    #sidebar {
+        width: 100% !important;
+        display: inline;
+        position: relative !important;
+        top: 0;
+        right: 0;
+        overflow: hidden;
+    }
+
+    .pagina {
+        width: 100%;
+        transform: translateX(0%);
+    }
+
+    details {
+        display: flex;
+        font-size: 15px;
+        font-size: 20px;
+        color: white;
+    }
+
+    #botao {
+        padding-top: 10 px;
+        background-color: #A18755;
+        margin: -5px 0 0 0;
+    }
+
+    #close {
+        /* margin: 0 !important; */
+        margin-left: 90% !important;
+    }
+</style>
+
 <body>
-    <div>
-        <img class="topo"
-            src="https://img.freepik.com/fotos-gratis/maos-de-mulher-fazendo-trabalho-de-trico-em-casa_1150-17414.jpg?t=st=1733020132~exp=1733023732~hmac=53ee32d0284bea4b95e03a25ca1fe639a37d83fc218c2a700d439e8f50af8ede&w=996"
-            alt="Imagem de uma mulher fazendo crochê">
-        <h1>Curso de Crochê</h1>
-        <span><button id="open" type="button" onclick="openSide()">☰</button></span>
+    <div id="botao">
+        <span><button id="close" type="button" onclick="closeSide()">X</button></span>
     </div>
     <div id="sidebar">
-        <span><button id="close" type="button" onclick="closeSide()">X</button></span>
         <details>
             <summary>Introdução e Fundamentos</summary>
             <ul>
@@ -50,54 +84,105 @@
                 <li><a href="pratica-e-workshops.html">Prática e workshops</a></li>
             </ul>
         </details>
-    </div>
-    <div class="content">
-        <h2>Peças Decorativas</h2>
-        <p>
-            O crochê é uma técnica perfeita para criar peças decorativas que trazem um toque único e artesanal para qualquer ambiente. Seja para decorar sua casa ou presentear alguém especial, as possibilidades são infinitas.
-        </p>
-        <img class="ilustracao"
-            src="https://img.freepik.com/fotos-premium/toalha-de-croche-redonda-em-tom-pastel-no-fundo-de-madeira-decoracao-caseira-feita-a-mao_200091-300.jpg"
-            alt="Toalha de crochê redonda em tom pastel">
-        <section>
-            <h3>Ideias de Peças Decorativas</h3>
-            <ul>
-                <li><strong>Toalhas de mesa:</strong> Ideais para embelezar mesas de jantar e café.</li>
-                <li><strong>Almofadas:</strong> Crie capas únicas com padrões coloridos e texturas variadas.</li>
-                <li><strong>Cortinas:</strong> Adicione um toque delicado às janelas com detalhes de crochê.</li>
-                <li><strong>Tapetes:</strong> Faça peças que combinam com a decoração da sala, quarto ou banheiro.</li>
-                <li><strong>Mandalas:</strong> Lindas para pendurar na parede ou usar como suporte de pratos.</li>
-            </ul>
-        </section>
-        <section>
-            <h3>Materiais e Dicas</h3>
-            <p>
-                Escolha materiais que combinem estética e funcionalidade. Linhas mais finas são ideais para trabalhos delicados, enquanto fios de barbante ou lã grossa são perfeitos para tapetes e almofadas. Veja algumas dicas:
-            </p>
-            <ul>
-                <li>Use cores que combinem com o ambiente onde a peça será usada.</li>
-                <li>Invista em acabamentos detalhados para maior sofisticação.</li>
-                <li>Prefira linhas laváveis e resistentes para peças de uso diário.</li>
-            </ul>
-        </section>
-        <section>
-            <h3>Como Começar</h3>
-            <p>
-                Para começar, escolha um projeto pequeno, como um sousplat ou um jogo americano. Utilize gráficos ou siga tutoriais em vídeo para entender o padrão. Trabalhe com calma e aproveite o processo criativo.
-            </p>
-        </section>
-    </div>
-    <footer>
-        <p>Desenvolvido por Samuel Chaves e Franciele</p>
-    </footer>
-    <script>
-        function closeSide() {
-            document.getElementById('sidebar').style.width = "0px";
-        }
-        function openSide() {
-            document.getElementById('sidebar').style.width = "40%";
-        }
-    </script>
+        </div>
+        <div class="pagina">
+
+            <div>
+                <img class="topo"
+                    src="https://img.freepik.com/fotos-gratis/maos-de-mulher-fazendo-trabalho-de-trico-em-casa_1150-17414.jpg?t=st=1733020132~exp=1733023732~hmac=53ee32d0284bea4b95e03a25ca1fe639a37d83fc218c2a700d439e8f50af8ede&w=996"
+                    alt="Imagem de uma mulher fazendo crochê">
+                <h1>Curso de Crochê</h1>
+                <nav>
+                    <span><button id="open" type="button" onclick="openSide()">☰</button></span>
+                    <span><a id="home" href="index.html"><img src="midia/iconHome.png" alt=""></a></span>
+                </nav>
+            </div>
+            <div class="content">
+                <h2>Peças Decorativas</h2>
+                <p>
+                    O crochê é uma técnica perfeita para criar peças decorativas que trazem um toque único e artesanal
+                    para
+                    qualquer ambiente. Seja para decorar sua casa ou presentear alguém especial, as possibilidades são
+                    infinitas.
+                </p>
+                <img class="ilustracao" class="full"
+                    src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9YxizJRR436U-rkpbXqokD48OWvxboQIrSAFF6evyMqCoEmdBFvlRoFAp0P6dcoGcDivuzoB-ewF7l-Qpp3v_7PuJvqA0eLsJxqxiPk-UCS4AX4XtPAgf48fLL1ksrd0kva2FMwhIsrA/s1280/Toalhinha+de+croch%25C3%25AA.jpg"
+                    alt="Toalha de crochê redonda em tom pastel">
+                <section>
+                    <h3>Ideias de Peças Decorativas</h3>
+                    <ul>
+                        <li><strong>Toalhas de mesa:</strong> Ideais para embelezar mesas de jantar e café.</li>
+                        <li><strong>Almofadas:</strong> Crie capas únicas com padrões coloridos e texturas variadas.
+                        </li>
+                        <li><strong>Cortinas:</strong> Adicione um toque delicado às janelas com detalhes de crochê.
+                        </li>
+                        <li><strong>Tapetes:</strong> Faça peças que combinam com a decoração da sala, quarto ou
+                            banheiro.
+                        </li>
+                        <li><strong>Mandalas:</strong> Lindas para pendurar na parede ou usar como suporte de pratos.
+                        </li>
+                        <img class="ilustracao umTerco"
+                            src="https://img.elo7.com.br/product/zoom/4D879EE/pecas-feitas-em-croche-feitas-a-mao-e-com-muito-amor-decoracao.jpg"
+                            alt="Toalha de crochê redonda em tom pastel">
+                        <img class="ilustracao umTerco" style="width: 20%;"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgCwDsyjBm8-2a_ifKZKa-VEsGF95USoJM3E77mE4Y3TeYBmpE84PzGqJIueWpae1sk1E&usqp=CAU"
+                            alt="Toalha de crochê redonda em tom pastel">
+                        <img class="ilustracao umTerco"
+                            src="https://i.pinimg.com/736x/a2/0c/1b/a20c1b3bfa8e501f38d76100b7a11833.jpg"
+                            alt="Toalha de crochê redonda em tom pastel">
+                    </ul>
+                </section>
+                <section>
+                    <h3>Materiais e Dicas</h3>
+                    <p>
+                        Escolha materiais que combinem estética e funcionalidade. Linhas mais finas são ideais para
+                        trabalhos delicados, enquanto fios de barbante ou lã grossa são perfeitos para tapetes e
+                        almofadas.
+                        Veja algumas dicas:
+                    </p>
+                    <ul>
+                        <li>Use cores que combinem com o ambiente onde a peça será usada.</li>
+                        <li>Invista em acabamentos detalhados para maior sofisticação.</li>
+                        <li>Prefira linhas laváveis e resistentes para peças de uso diário.</li>
+                        <img class="ilustracao umTerco"
+                            src="https://i.pinimg.com/originals/02/68/45/02684594076991bf3eca4f4710959f10.jpg"
+                            alt="Toalha de crochê redonda em tom pastel">
+                        <img class="ilustracao umQuarto"
+                            src="https://amamosartesmanuais.com.br/wp-content/uploads/2024/07/dicas-para-iniciantes-no-croche.png"
+                            alt="Toalha de crochê redonda em tom pastel">
+                        <img class="ilustracao umTerco" src="https://i.ytimg.com/vi/TP9OsLTzfoo/maxresdefault.jpg"
+                            alt="Toalha de crochê redonda em tom pastel">
+                    </ul>
+                </section>
+                <section>
+                    <h3>Como Começar</h3>
+                    <p>
+                        Para começar, escolha um projeto pequeno, como um sousplat ou um jogo americano. Utilize
+                        gráficos ou
+                        siga tutoriais em vídeo para entender o padrão. Trabalhe com calma e aproveite o processo
+                        criativo.
+                    </p>
+                    <iframe width="100%" height="480" src="https://www.youtube.com/embed/mR46t9y1pMk"
+                        title="SOUSPLAT RENDA | Sousplat em crochê com 100g fio - ECONÔMICO /Jogo americano em crochê passo a passo"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </section>
+            </div>
+            <footer>
+                <p>Desenvolvido por Samuel Chaves e Franciele</p>
+            </footer>
+        </div>
+        <script>
+            function closeSide() {
+                document.getElementById('botao').style.display = "none";
+                document.getElementById('sidebar').style.display = "none";
+            }
+            function openSide() {
+                document.getElementById('botao').style.display = "block";
+                document.getElementById('sidebar').style.display = "inline";
+            }
+        </script>
 </body>
 
 </html>

@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=Righteous&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="externos/styles.css">
 </head>
 
 <body>
@@ -18,7 +18,10 @@
             src="https://img.freepik.com/fotos-gratis/maos-de-mulher-fazendo-trabalho-de-trico-em-casa_1150-17414.jpg?t=st=1733020132~exp=1733023732~hmac=53ee32d0284bea4b95e03a25ca1fe639a37d83fc218c2a700d439e8f50af8ede&w=996"
             alt="Mãos de uma mulher trabalhando em crochê">
         <h1>Curso de Crochê</h1>
-        <span><button id="open" type="button" onclick="openSide()">☰</button></span>
+        <nav>
+            <span><button id="open" type="button" onclick="openSide()">☰</button></span>
+            <span><a id="home" href="index.html"><img src="midia/iconHome.png" alt=""></a></span>
+        </nav>
     </div>
     <div id="sidebar">
         <span><button id="close" type="button" onclick="closeSide()">X</button></span>
@@ -56,31 +59,40 @@
         <p>
             A prática é fundamental para aprimorar suas habilidades no crochê, e os workshops são excelentes oportunidades para aprender novas técnicas, trocar experiências e se inspirar em outros artesãos.
         </p>
-        <img class="ilustracao"
-            src="https://img.freepik.com/fotos-premium/grupo-de-mulheres-fazendo-aula-de-artesanato-juntas_260672-2592.jpg"
+        <img class="ilustracao full"
+        style="max-width: 500px !important;"
+            src="https://img.freepik.com/fotos-premium/clube-de-croche-senhoras-em-croche-com-la-colorida_223582-4497.jpg"
             alt="Grupo de pessoas participando de um workshop de crochê">
-        <section>
-            <h3>Por que Participar de Workshops?</h3>
-            <p>
-                Workshops oferecem um ambiente colaborativo e motivador para aprender e compartilhar ideias. Os benefícios incluem:
-            </p>
-            <ul>
-                <li>Aprender novas técnicas e tendências do crochê.</li>
-                <li>Receber orientação de especialistas e professores.</li>
-                <li>Conhecer pessoas com interesses semelhantes e construir uma rede de contatos.</li>
-                <li>Experimentar projetos e materiais novos.</li>
-            </ul>
-        </section>
-        <section>
-            <h3>Como Praticar Crochê no Dia a Dia</h3>
-            <p>
-                Para aperfeiçoar suas habilidades, pratique regularmente. Aqui estão algumas sugestões:
-            </p>
-            <ul>
-                <li>Separe um tempo diário ou semanal para praticar.</li>
-                <li>Escolha projetos pequenos para treinar pontos específicos.</li>
-                <li>Experimente gráficos e esquemas simples para aumentar sua confiança.</li>
-                <li>Repita os mesmos padrões até ganhar fluidez.</li>
+            <section>
+                <h3>Por que Participar de Workshops?</h3>
+                <p>
+                    Workshops oferecem um ambiente colaborativo e motivador para aprender e compartilhar ideias. Os benefícios incluem:
+                </p>
+                <ul>
+                    <li>Aprender novas técnicas e tendências do crochê.</li>
+                    <li>Receber orientação de especialistas e professores.</li>
+                    <li>Conhecer pessoas com interesses semelhantes e construir uma rede de contatos.</li>
+                    <li>Experimentar projetos e materiais novos.</li>
+                    <img class="ilustracao full"
+                    style="max-width: 500px !important;"
+                        src="https://img.freepik.com/fotos-premium/clube-de-croche-senhoras-em-croche-com-la-colorida_223582-4510.jpg"
+                        alt="Grupo de pessoas participando de um workshop de crochê">
+                    </ul>
+                </section>
+                <section>
+                    <h3>Como Praticar Crochê no Dia a Dia</h3>
+                    <p>
+                        Para aperfeiçoar suas habilidades, pratique regularmente. Aqui estão algumas sugestões:
+                    </p>
+                    <ul>
+                        <li>Separe um tempo diário ou semanal para praticar.</li>
+                        <li>Escolha projetos pequenos para treinar pontos específicos.</li>
+                        <li>Experimente gráficos e esquemas simples para aumentar sua confiança.</li>
+                        <li>Repita os mesmos padrões até ganhar fluidez.</li>
+                        <img class="ilustracao full"
+                        style="max-width: 500px !important;"
+                            src="https://clubepaineiras.org.br/wp-content/uploads/2022/10/croche-2.jpg"
+                            alt="Grupo de pessoas participando de um workshop de crochê">
             </ul>
         </section>
         <section>
@@ -93,6 +105,7 @@
                 <li>Tenha um caderno ou aplicativo para anotar dicas e aprendizados.</li>
                 <li>Participe ativamente, fazendo perguntas e interagindo com os outros participantes.</li>
                 <li>Depois do evento, pratique as técnicas aprendidas para fixar o conhecimento.</li>
+                <video src="midia/Workshop.mp4" muted autoplay loop></video>
             </ul>
         </section>
     </div>
