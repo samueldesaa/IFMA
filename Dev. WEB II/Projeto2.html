@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <title>Gerenciador de Tarefas</title>
+</head>
+
+<style>
+    button {
+        color: white !important;
+        border-radius: 3px !important;
+    }
+
+    .is-info {
+        background-color: #449ee8;
+    }
+
+    .concluded {
+        background-color: #7f8c8d !important;
+        cursor: not-allowed;
+    }
+</style>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="has-text-weight-semibold is-size-3">Gerenciador de Tarefas</h1>
+
+        <div class="box">
+            <h2 class="has-text-weight-semibold">Título da Tarefa</h2>
+            <input id="titulo" class="input" placeholder="Digite o título da tarefa">
+            <h2 class="has-text-weight-semibold mt-3">Descrição</h2>
+            <textarea id="desc" class="textarea" placeholder="Digite a descrição da tarefa"></textarea>
+            <button onclick="addTarefa()" class="button is-primary mt-3">Adicionar Tarefa</button>
+        </div>
+        <hr>
+        <h2 class="is-size-4 mt-5">Lista de Tarefas</h2>
+        <div id="tarefas" class="mt-3"></div>
+    </div>
+
+    <script>
+        class Tarefa {
+            constructor(id, titulo, descricao) {
+                this.id = id;
+                this.titulo = titulo;
+                this.descricao = descricao;
+                this.concluida = false;
+            }
+        }
+
+        let listaDeTarefas = [];
+
+        function renderizarLista() {
+            const tarefasContainer = document.getElementById('tarefas');
+            tarefasContainer.innerHTML = '';
+
+            listaDeTarefas.forEach(tarefa => {
+                const tarefaBox = document.createElement('div');
+                tarefaBox.className = 'box';
+                tarefaBox.id = `tarefa-${tarefa.id}`;
+
+                tarefaBox.innerHTML = `
+                    <h3 class="has-text-weight-bold">
+                        ${tarefa.titulo} ${tarefa.concluida ? '(Concluída)' : ''}
+                    </h3>
+                    <p>${tarefa.descricao}</p>
+                    <div class="buttons mt-3">
+                        <button onclick="concluirTarefa(${tarefa.id})" 
+                                class="button is-success ${tarefa.concluida ? 'concluded' : ''}" 
+                                ${tarefa.concluida ? 'disabled' : ''}>
+                            ${tarefa.concluida ? 'Concluído' : 'Concluir'}
+                        </button>
+                        <button onclick="editarTarefa(${tarefa.id})" class="button is-info">Editar</button>
+                        <button onclick="removerTarefa(${tarefa.id})" class="button is-danger">Remover</button>
+                    </div>
+                `;
+
+                tarefasContainer.appendChild(tarefaBox);
+            });
+        }
+
+        function addTarefa() {
+            const titulo = document.getElementById('titulo').value;
+            const descricao = document.getElementById('desc').value;
+
+            if (!titulo || !descricao) {
+                alert('Preencha todos os campos antes de adicionar a tarefa.');
+                return;
+            }
+
+            const novaTarefa = new Tarefa(listaDeTarefas.length, titulo, descricao);
+            listaDeTarefas.push(novaTarefa);
+
+            document.getElementById('titulo').value = '';
+            document.getElementById('desc').value = '';
+
+            renderizarLista();
+        }
+
+        function concluirTarefa(id) {
+            const tarefa = listaDeTarefas.find(t => t.id === id);
+            if (tarefa && !tarefa.concluida) {
+                tarefa.concluida = true;
+                renderizarLista();
+            }
+        }
+
+        function editarTarefa(id) {
+            const tarefa = listaDeTarefas.find(t => t.id === id);
+            if (tarefa) {
+                const novoTitulo = prompt('Edite o título da tarefa:', tarefa.titulo);
+                const novaDescricao = prompt('Edite a descrição da tarefa:', tarefa.descricao);
+
+                if (novoTitulo && novaDescricao) {
+                    tarefa.titulo = novoTitulo;
+                    tarefa.descricao = novaDescricao;
+                    renderizarLista();
+                }
+            }
+        }
+
+        function removerTarefa(id) {
+            listaDeTarefas = listaDeTarefas.filter(t => t.id !== id);
+            renderizarLista();
+        }
+    </script>
+</body>
+
+</html>
