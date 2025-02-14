@@ -12,6 +12,6 @@
 </head>
 
 <body>
-    <nav>
-        <h1> Sistema de Gerenciamento de Clientes </h1>
+    <nav style="background-color: #07024d;">
+        <h1 class="subtitle is-5" style="color:white;padding:20px 10px"> Sistema de Gerenciamento de Clientes </h1>
     </nav>

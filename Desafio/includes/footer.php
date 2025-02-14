@@ -1,6 +1,6 @@
 </div>
 <footer>
-    <p>&copy; 2024 | Developed by Flávio Barros (versão 1) </p>
+    <p>&copy; 2025 | Developed by Samuel Chaves (versão 2) </p>
 </footer>    
 </body>
 </html>
