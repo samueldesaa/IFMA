@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartHome+ - Automação Inteligente por Assinatura</title>
+  <style>
+    /* Reset e configurações básicas */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f8f8f8;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    /* Container geral */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      overflow: hidden;
+    }
+    /* Header */
+    header {
+      background: #007bff;
+      color: #fff;
+      padding: 20px 0;
+    }
+    header .logo h1 {
+      font-size: 1.8rem;
+    }
+    header nav {
+      margin-top: 10px;
+    }
+    header nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+    }
+    header nav ul li {
+      margin: 0 15px;
+    }
+    header nav ul li a {
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    header nav ul li a:hover {
+      color: #d4d4d4;
+    }
+    /* Hero Section */
+    .hero {
+      background: url('automação residencial.png') center/cover no-repeat;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.4);
+    }
+    .hero h1 {
+      position: relative;
+      font-size: 3rem;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+      z-index: 1;
+    }
+    /* Seções Gerais */
+    section {
+      padding: 60px 0;
+    }
+    section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #007bff;
+    }
+    /* Sobre Nós */
+    .about p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+    /* Serviços */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 0 20px;
+    }
+    .service-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+    .service-card h3 {
+      margin-bottom: 15px;
+      color: #007bff;
+    }
+    .service-card p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    /* Contato */
+    .contact form {
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: auto;
+    }
+    .contact form input,
+    .contact form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .contact form button {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+    .contact form button:hover {
+      background: #0056b3;
+    }
+    /* Footer */
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+    }
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      header nav ul {
+        flex-direction: column;
+      }
+      header nav ul li {
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <h1>SmartHome+</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <h1>Automação Inteligente para Residências e Empresas</h1>
+  </section>
+
+  <!-- Sobre Nós -->
+  <section id="sobre">
+    <div class="container about">
+      <h2>Sobre Nós</h2>
+      <p>A SmartHome+ é uma empresa que transforma a maneira como você interage com seus ambientes, oferecendo soluções completas de automação por assinatura. Com tecnologia de ponta e uma plataforma integrada, facilitamos o controle e a gestão de dispositivos, seja em residências ou em espaços corporativos.</p>
+      <p>Nossa missão é proporcionar conforto, segurança e eficiência, eliminando a necessidade de altos investimentos iniciais. Com suporte técnico especializado e serviços personalizados, estamos prontos para atender às demandas do mercado moderno, promovendo a inovação e a sustentabilidade em cada projeto.</p>
+    </div>
+  </section>
+
+  <!-- Serviços -->
+  <section id="servicos">
+    <div class="container">
+      <h2>Nossos Serviços</h2>
+      <div class="services">
+        <div class="service-card">
+          <h3>Plataforma Integrada</h3>
+          <p>Gerencie e monitore todos os dispositivos conectados em um único painel, com informações em tempo real e análises que otimizam a operação dos ambientes.</p>
+        </div>
+        <div class="service-card">
+          <h3>Aplicativo Intuitivo</h3>
+          <p>Controle sua automação de forma simples e prática através do nosso aplicativo, disponível para iOS e Android, com funcionalidades que se adaptam às suas necessidades.</p>
+        </div>
+        <div class="service-card">
+          <h3>Suporte Técnico Especializado</h3>
+          <p>Conte com uma equipe de profissionais qualificados, disponível 24/7, para garantir o pleno funcionamento e a segurança de todos os sistemas instalados.</p>
+        </div>
+        <div class="service-card">
+          <h3>Personalização e Escalabilidade</h3>
+          <p>Projetos customizados que acompanham o crescimento do seu ambiente, permitindo expansões e adaptações conforme as mudanças tecnológicas e suas necessidades.</p>
+        </div>
+        <div class="service-card">
+          <h3>Gestão de Energia</h3>
+          <p>Monitore e otimize o consumo energético dos seus dispositivos, contribuindo para a sustentabilidade e redução de custos operacionais.</p>
+        </div>
+        <div class="service-card">
+          <h3>Atualizações e Manutenção</h3>
+          <p>Realizamos manutenções preventivas e atualizações contínuas para manter a performance e a segurança dos sistemas, garantindo a melhor experiência para o usuário.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato">
+    <div class="container contact">
+      <h2>Contato</h2>
+      <form action="#" method="post">
+        <input type="text" name="nome" placeholder="Seu Nome" required>
+        <input type="email" name="email" placeholder="Seu E-mail" required>
+        <textarea name="mensagem" rows="5" placeholder="Sua Mensagem" required></textarea>
+        <button type="submit">Enviar Mensagem</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 SmartHome+. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>
