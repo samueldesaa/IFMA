@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Controle ESP32</title>
+  <script src="https://unpkg.com/paho-mqtt/mqttws31.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      background: #0f172a;
+      color: white;
+    }
+
+    button {
+      padding: 15px 25px;
+      margin: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .on { background: #22c55e; }
+    .off { background: #ef4444; }
+
+    #status {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #38bdf8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>Controle de LEDs (ESP32)</h2>
+
+  <h3>LED 1</h3>
+  <button class="on" onclick="enviar('samuel_esp32/led1','1')">Ligar</button>
+  <button class="off" onclick="enviar('samuel_esp32/led1','0')">Desligar</button>
+
+  <h3>LED 2</h3>
+  <button class="on" onclick="enviar('samuel_esp32/led2','1')">Ligar</button>
+  <button class="off" onclick="enviar('samuel_esp32/led2','0')">Desligar</button>
+
+  <div id="status">Status: Desconectado</div>
+
+  <script>
+    // 🔐 CONFIGURAÇÃO
+    const endpoint = "broker.hivemq.com "; // ex: abc123.s1.eu.hivemq.cloud
+    const clientId = "clientId-Bt855pO2q6";
+
+    const client = new Paho.MQTT.Client(endpoint, 8884, clientId);
+
+    // 📡 RECEBER mensagens
+    client.onMessageArrived = function(message) {
+      const statusDiv = document.getElementById("status");
+      statusDiv.innerHTML = "Status: " + message.payloadString;
+    };
+
+    // 🔌 CONECTAR
+    client.connect({
+      userName: "samuel",
+      password: "123454",
+      useSSL: true,
+
+      onSuccess: () => {
+        console.log("Conectado 🔐");
+        document.getElementById("status").innerHTML = "Status: Conectado";
+
+        // 🔔 Escuta o status do ESP
+        client.subscribe("samuel_esp32/status");
+      },
+
+      onFailure: (err) => {
+        console.error("Erro:", err);
+      }
+    });
+
+    // 🚀 ENVIAR
+    function enviar(topico, mensagem) {
+      let msg = new Paho.MQTT.Message(mensagem);
+      msg.destinationName = topico;
+      client.send(msg);
+    }
+  </script>
+
+</body>
+</html>
