@@ -27,7 +27,7 @@ const int ENA_ESQUERDA = 33;
 // ================= SENSORES =================
 const int LDR = 35;
 const int SENSOR_IR = 34;
-const int LED = 25;
+const int botao = 25;
 
 // ================= BUZZER =================
 const int buzzer = 26;
@@ -42,7 +42,7 @@ const int IR_LINHA = HIGH;
 
 // ================= VELOCIDADES =================
 int velocidade = 100;
-int velocidadeCurva = 100;
+int velocidadeCurva = 150;
 
 // ================= CONTROLE =================
 bool iniciou = false;
@@ -54,7 +54,7 @@ void setup() {
   pinMode(IN2, OUTPUT);
   pinMode(IN3, OUTPUT);
   pinMode(IN4, OUTPUT);
-  pinMode(LED, OUTPUT);
+  pinMode(botao, INPUT_PULLUP);
 
   pinMode(ENB_DIREITA, OUTPUT);
   pinMode(ENA_ESQUERDA, OUTPUT);
@@ -72,13 +72,15 @@ void setup() {
   iniciou = true;
 
   Serial.println("Comecando a andar...");
+  while(digitalRead(botao));
+  velocidade=200;
+  frente();
+  delay(20);
+  velocidade=100;
+  frente();
 }
-
+int i = 0;
 void loop() {
-  if (!iniciou) {
-    parar();
-    return;
-  }
 
   int leituraLDR = analogRead(LDR);
 
@@ -91,7 +93,7 @@ void loop() {
   bool ldrNaLinha = leituraLDR > limiteLDR;
   bool irNaLinha = leituraIR == IR_LINHA;
 
-  digitalWrite(LED, !ldrNaLinha);
+  // digitalWrite(LED, !ldrNaLinha);
 
   Serial.print("LDR bruto: ");
   Serial.print(leituraLDR);
@@ -116,18 +118,24 @@ void loop() {
     parar();
     delay(50);
     apitarInicio();
-    frente();
-    delay(100);
+    // frente();
+    // delay(500);
+    if(i%2){
+      virarEsquerda(400);
+    }else{
+      virarDireita(400);
+    }
+    i++;
     Serial.println("Frente");
   } 
   else if (ldrNaLinha && !irNaLinha) {
-    girarEsquerda();
+    esquerda();
     delay(20);
     parar();
     Serial.println("Corrigindo esquerda");
   } 
   else if (!ldrNaLinha && irNaLinha) {
-    girarDireita();
+    direita();
     delay(20);
     parar();
     Serial.println("Corrigindo direita");
@@ -159,7 +167,7 @@ void frente() {
 }
 
 void esquerda() {
-  setVelocidade(velocidadeCurva, velocidade);
+  setVelocidade(velocidadeCurva, velocidadeCurva);
 
   digitalWrite(IN1, LOW);
   digitalWrite(IN2, LOW);
@@ -169,7 +177,7 @@ void esquerda() {
 }
 
 void direita() {
-  setVelocidade(velocidade, velocidadeCurva);
+  setVelocidade(velocidadeCurva, velocidadeCurva);
 
   digitalWrite(IN2, HIGH);
   digitalWrite(IN1, LOW);
@@ -188,26 +196,49 @@ void re() {
   digitalWrite(IN3, HIGH);
 }
 
-void girarEsquerda() {
-  setVelocidade(velocidade, velocidade);
+void virarEsquerda(int del) {
+  Serial.println("Girando para Esquerda");
+  setVelocidade(velocidadeCurva, velocidadeCurva);
+  frente();
+  delay(600);
+  girarEsquerda();
+  delay(del);
+  parar();
+  delay(50);
+  frente();
+  delay(100);
 
+}
+void virarDireita(int del) {
+  Serial.println("Girando para Direita");
+  setVelocidade(velocidadeCurva, velocidadeCurva);
+  frente();
+  delay(600);
+  girarDireita();
+  delay(del);
+  parar();
+  delay(50);
+  frente();
+  delay(100);
+
+}
+void girarEsquerda() {
+  Serial.println("Girando para Esquerda");
+  setVelocidade(velocidadeCurva, velocidadeCurva);
   digitalWrite(IN1, HIGH);
   digitalWrite(IN2, LOW);
 
   digitalWrite(IN3, LOW);
   digitalWrite(IN4, HIGH);
-
-  Serial.println("Girando para Esquerda");
 }
 void girarDireita() {
-  setVelocidade(velocidade, velocidade);
+  Serial.println("Girando para Direita");
+  setVelocidade(velocidadeCurva, velocidadeCurva);
   digitalWrite(IN1, LOW);
   digitalWrite(IN2, HIGH);
 
   digitalWrite(IN3, HIGH);
   digitalWrite(IN4, LOW);
-
-  Serial.println("Girando para Direita");
 }
 
 void parar() {
