@@ -1,51 +1,58 @@
-/*
-  Robô seguidor de linha com ESP32
-  Sensores:
-  - LDR no D35
-  - Sensor infravermelho no D34
-  - Buzzer no D26
+//Robo Samuel
 
-  Ponte H:
-  - IN1 = D13
-  - IN2 = D12
-  - IN3 = D14
-  - IN4 = D27
-  - ENB_DIREITA = D32
-  - ENA_ESQUERDA = D33
-*/
-
-// ================= PONTE H =================
 const int IN1 = 13;
 const int IN2 = 12;
 const int IN3 = 14;
 const int IN4 = 27;
 
-// ================= PWM / ENABLE =================
 const int ENB_DIREITA = 32;
 const int ENA_ESQUERDA = 33;
 
-// ================= SENSORES =================
-const int LDR = 35;
-const int SENSOR_IR = 34;
+const int SENSOR_IR1 = 35;
+const int SENSOR_IR2 = 34;
 const int botao = 25;
-
-// ================= BUZZER =================
 const int buzzer = 26;
 
-// ================= CONFIGURAÇÃO DOS SENSORES =================
-// Agora o limite do LDR vai de 0 a 255
-// Ajuste esse valor olhando o Serial Monitor
-int limiteLDR = 1800;
-
-// Altere para HIGH se o seu sensor IR detectar linha em HIGH
-const int IR_LINHA = HIGH;
-
-// ================= VELOCIDADES =================
-int velocidade = 100;
+int velocidade = 90;
 int velocidadeCurva = 150;
 
-// ================= CONTROLE =================
-bool iniciou = false;
+// //Robo Franciele
+// const int IN1 = 12;
+// const int IN2 = 13;
+// const int IN3 = 27;
+// const int IN4 = 14;
+
+// const int ENB_DIREITA = 32;
+// const int ENA_ESQUERDA = 33;
+
+// const int LDR = 35;
+// const int SENSOR_IR = 34;
+// const int botao = 25;
+
+
+// int limiteLDR = 1700;
+
+
+// int velocidade = 100;
+// int velocidadeCurva = 100;
+
+const int IR_LINHA = HIGH;
+
+String rotaTexto = "frente, frente, frente, frente, frente, frente, direita, parar";
+
+const int MAX_COMANDOS = 20;
+String comandos[MAX_COMANDOS];
+
+int totalComandos = 0;
+int comandoAtual = 0;
+
+int tempoPassarIntersecao = 400;
+
+int tempoFrenteAntesCurvaEsquerda = 700;
+int tempoCurvaEsquerda = 400;
+
+int tempoFrenteAntesCurvaDireita = 700;
+int tempoCurvaDireita = 400;
 
 void setup() {
   Serial.begin(115200);
@@ -54,99 +61,187 @@ void setup() {
   pinMode(IN2, OUTPUT);
   pinMode(IN3, OUTPUT);
   pinMode(IN4, OUTPUT);
+
   pinMode(botao, INPUT_PULLUP);
 
   pinMode(ENB_DIREITA, OUTPUT);
   pinMode(ENA_ESQUERDA, OUTPUT);
 
-  pinMode(LDR, INPUT);
-  pinMode(SENSOR_IR, INPUT);
+  pinMode(SENSOR_IR1, INPUT);
+  pinMode(SENSOR_IR2, INPUT);
 
   pinMode(buzzer, OUTPUT);
 
   parar();
 
-  Serial.println("Robo seguidor de linha iniciado");
-  Serial.println("Aguardando inicializacao...");
+  carregarRota(rotaTexto);
 
-  iniciou = true;
+  Serial.println("Robo seguidor de linha iniciado");
+  Serial.println("Rota carregada:");
+
+  for (int j = 0; j < totalComandos; j++) {
+    Serial.print(j + 1);
+    Serial.print(" - ");
+    Serial.println(comandos[j]);
+  }
+
+  Serial.println("Aguardando botao para iniciar...");
+
+  // while (digitalRead(botao) == HIGH) {
+  //   parar();
+  // }
+
+  apitarInicio();
 
   Serial.println("Comecando a andar...");
-  while(digitalRead(botao));
-  velocidade=200;
+
   frente();
-  delay(20);
-  velocidade=100;
-  frente();
+  delay(100);
 }
-int i = 0;
+
 void loop() {
+  int leituraIR1 = digitalRead(SENSOR_IR1);
+  int leituraIR2 = digitalRead(SENSOR_IR2);
 
-  int leituraLDR = analogRead(LDR);
+  bool irNaLinha1 = leituraIR1 == IR_LINHA;
+  bool irNaLinha2 = leituraIR2 == IR_LINHA;
 
-  // Converte a leitura do LDR de 0-4095 para 0-255
-  // int ldrMapeado = map(leituraLDR,1000, 4096, 0, 255);
-  // ldrMapeado = constrain(ldrMapeado, 0, 255);
+  Serial.print(" | IR1: ");
+  Serial.print(leituraIR1);
 
-  int leituraIR = digitalRead(SENSOR_IR);
+  Serial.print(" | IR1: ");
+  Serial.print(irNaLinha1 ? "SIM" : "NAO");
 
-  bool ldrNaLinha = leituraLDR > limiteLDR;
-  bool irNaLinha = leituraIR == IR_LINHA;
+  Serial.print(" | IR2: ");
+  Serial.print(leituraIR2);
 
-  // digitalWrite(LED, !ldrNaLinha);
+  Serial.print(" | IR2: ");
+  Serial.print(irNaLinha2 ? "SIM" : "NAO");
 
-  Serial.print("LDR bruto: ");
-  Serial.print(leituraLDR);
+  Serial.print(" | Comando atual: ");
 
-  // Serial.print(" | LDR 0-255: ");
-  // Serial.print(ldrMapeado);
-
-  Serial.print(" | LDR linha: ");
-  Serial.print(ldrNaLinha ? "SIM" : "NAO");
-
-  Serial.print(" | IR: ");
-  Serial.print(leituraIR);
-
-  Serial.print(" | IR linha: ");
-  Serial.print(irNaLinha ? "SIM" : "NAO");
+  if (comandoAtual < totalComandos) {
+    Serial.print(comandos[comandoAtual]);
+  } else {
+    Serial.print("nenhum");
+  }
 
   Serial.print(" | Acao: ");
 
-  
+  if (irNaLinha1 && irNaLinha2) {
+    parar();
+    delay(80);
 
-  if (ldrNaLinha && irNaLinha) {
-    parar();
-    delay(50);
     apitarInicio();
-    // frente();
-    // delay(500);
-    if(i%2){
-      virarEsquerda(400);
-    }else{
-      virarDireita(400);
+
+    if (comandoAtual < totalComandos) {
+      executarComando(comandos[comandoAtual]);
+      comandoAtual++;
+    } else {
+      Serial.println("Fim da rota. Parando.");
+      parar();
+      while (true) {
+        parar();
+      }
     }
-    i++;
-    Serial.println("Frente");
-  } 
-  else if (ldrNaLinha && !irNaLinha) {
-    esquerda();
-    delay(20);
-    parar();
+
+    delay(100);
+  }
+
+  else if (irNaLinha1 && !irNaLinha2) {
+    // re();
+    // delay(50);
+    girarEsquerda(150);
+    delay(50);
     Serial.println("Corrigindo esquerda");
-  } 
-  else if (!ldrNaLinha && irNaLinha) {
-    direita();
-    delay(20);
-    parar();
+  }
+
+  else if (!irNaLinha1 && irNaLinha2) {
+    // re();
+    // delay(50);
+    girarDireita(150);
+    delay(50);
     Serial.println("Corrigindo direita");
-  } 
+  }
+
   else {
     frente();
-    Serial.println("Linha perdida");
+    // delay(70);
+    // parar();
+    // delay(20);
+    Serial.println("Linha perdida / seguindo em frente");
   }
 }
 
-// ================= VELOCIDADE =================
+void carregarRota(String texto) {
+  texto.toLowerCase();
+  texto.trim();
+
+  totalComandos = 0;
+
+  while (texto.length() > 0 && totalComandos < MAX_COMANDOS) {
+    int posVirgula = texto.indexOf(',');
+
+    String comando;
+
+    if (posVirgula == -1) {
+      comando = texto;
+      texto = "";
+    } else {
+      comando = texto.substring(0, posVirgula);
+      texto = texto.substring(posVirgula + 1);
+    }
+
+    comando.trim();
+
+    if (comando.length() > 0) {
+      comandos[totalComandos] = comando;
+      totalComandos++;
+    }
+  }
+}
+
+void executarComando(String comando) {
+  comando.toLowerCase();
+  comando.trim();
+
+  Serial.print("Executando comando: ");
+  Serial.println(comando);
+
+  if (comando == "frente") {
+    passarDireto();
+  }
+
+  else if (comando == "direita") {
+    virarDireita(tempoFrenteAntesCurvaDireita, tempoCurvaDireita);
+  }
+
+  else if (comando == "esquerda") {
+    virarEsquerda(tempoFrenteAntesCurvaEsquerda, tempoCurvaEsquerda);
+  }
+
+  else if (comando == "parar") {
+    Serial.println("Comando PARAR recebido. Robo parado completamente.");
+    parar();
+
+    while (true) {
+      parar();
+    }
+  }
+
+  else {
+    Serial.println("Comando desconhecido. Passando direto por seguranca.");
+    passarDireto();
+  }
+}
+
+void passarDireto() {
+  Serial.println("Passando direto pela intersecao");
+
+  frente();
+  delay(tempoPassarIntersecao);
+}
+
 void setVelocidade(int velDireita, int velEsquerda) {
   velDireita = constrain(velDireita, 0, 255);
   velEsquerda = constrain(velEsquerda, 0, 255);
@@ -155,7 +250,6 @@ void setVelocidade(int velDireita, int velEsquerda) {
   analogWrite(ENA_ESQUERDA, velEsquerda);
 }
 
-// ================= MOVIMENTOS =================
 void frente() {
   setVelocidade(velocidade, velocidade);
 
@@ -174,6 +268,7 @@ void esquerda() {
 
   digitalWrite(IN4, HIGH);
   digitalWrite(IN3, LOW);
+  setVelocidade(velocidade, velocidade);
 }
 
 void direita() {
@@ -184,6 +279,7 @@ void direita() {
 
   digitalWrite(IN3, LOW);
   digitalWrite(IN4, LOW);
+  setVelocidade(velocidade, velocidade);
 }
 
 void re() {
@@ -196,49 +292,58 @@ void re() {
   digitalWrite(IN3, HIGH);
 }
 
-void virarEsquerda(int del) {
-  Serial.println("Girando para Esquerda");
-  setVelocidade(velocidadeCurva, velocidadeCurva);
-  frente();
-  delay(600);
-  girarEsquerda();
-  delay(del);
-  parar();
-  delay(50);
-  frente();
-  delay(100);
+void virarEsquerda(int frenteDel, int del) {
+  Serial.println("Virando para esquerda");
 
-}
-void virarDireita(int del) {
-  Serial.println("Girando para Direita");
-  setVelocidade(velocidadeCurva, velocidadeCurva);
   frente();
-  delay(600);
-  girarDireita();
-  delay(del);
-  parar();
-  delay(50);
-  frente();
-  delay(100);
+  delay(frenteDel);
 
+  girarEsquerda(150);
+  delay(del);
+
+  parar();
+  delay(80);
+
+  frente();
+  delay(150);
 }
-void girarEsquerda() {
-  Serial.println("Girando para Esquerda");
-  setVelocidade(velocidadeCurva, velocidadeCurva);
+
+void virarDireita(int frenteDel, int del) {
+  Serial.println("Virando para direita");
+
+  frente();
+  delay(frenteDel);
+
+  girarDireita(150);
+  delay(del);
+
+  parar();
+  delay(80);
+
+  frente();
+  delay(150);
+}
+
+void girarEsquerda(int vel) {
+  setVelocidade(vel, vel);
+
   digitalWrite(IN1, HIGH);
   digitalWrite(IN2, LOW);
 
   digitalWrite(IN3, LOW);
   digitalWrite(IN4, HIGH);
+  setVelocidade(velocidade, velocidade);
 }
-void girarDireita() {
-  Serial.println("Girando para Direita");
-  setVelocidade(velocidadeCurva, velocidadeCurva);
+
+void girarDireita(int vel) {
+  setVelocidade(vel, vel);
+
   digitalWrite(IN1, LOW);
   digitalWrite(IN2, HIGH);
 
   digitalWrite(IN3, HIGH);
   digitalWrite(IN4, LOW);
+  setVelocidade(velocidade, velocidade);
 }
 
 void parar() {
@@ -251,13 +356,9 @@ void parar() {
   digitalWrite(IN4, LOW);
 }
 
-// ================= BUZZER =================
 void apitarInicio() {
-  Serial.println("Apitando antes de iniciar...");
-
   analogWrite(buzzer, 180);
   delay(100);
   analogWrite(buzzer, 0);
   delay(100);
-
 }
