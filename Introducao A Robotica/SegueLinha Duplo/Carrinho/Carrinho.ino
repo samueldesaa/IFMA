@@ -13,7 +13,7 @@ const int SENSOR_IR2 = 34;
 const int botao = 25;
 const int buzzer = 26;
 
-int velocidade = 96;
+int velocidade = 90;
 int velocidadeCurva = 150;
 
 // //Robo Franciele
@@ -38,7 +38,7 @@ int velocidadeCurva = 150;
 
 const int IR_LINHA = HIGH;
 
-String rotaTexto = "frente, direita, frente, esquerda, parar";
+String rotaTexto = "frente, direita, frente, frente, frente, parar";
 
 const int MAX_COMANDOS = 20;
 String comandos[MAX_COMANDOS];
@@ -46,13 +46,13 @@ String comandos[MAX_COMANDOS];
 int totalComandos = 0;
 int comandoAtual = 0;
 
-int tempoPassarIntersecao = 300;
+int tempoPassarIntersecao = 400;
 
-int tempoFrenteAntesCurvaEsquerda = 300;
-int tempoCurvaEsquerda = 700;
+int tempoFrenteAntesCurvaEsquerda = 700;
+int tempoCurvaEsquerda = 400;
 
-int tempoFrenteAntesCurvaDireita = 300;
-int tempoCurvaDireita = 700;
+int tempoFrenteAntesCurvaDireita = 700;
+int tempoCurvaDireita = 400;
 
 void setup() {
   Serial.begin(115200);
@@ -91,10 +91,12 @@ void setup() {
   //   parar();
   // }
 
+  apitarInicio();
 
   Serial.println("Comecando a andar...");
 
-  
+  frente();
+  delay(100);
 }
 
 void loop() {
@@ -150,21 +152,23 @@ void loop() {
 
   else if (irNaLinha1 && !irNaLinha2) {
     // re();
+    // delay(50);
     girarEsquerda(100);
     Serial.println("Corrigindo esquerda");
   }
 
   else if (!irNaLinha1 && irNaLinha2) {
     // re();
-    girarDireita(100);
+    // delay(50);
+    girarDireita(10);
     Serial.println("Corrigindo direita");
   }
 
   else {
     frente();
-    delay(50);
-    parar();
-    delay(20);
+    // delay(70);
+    // parar();
+    // delay(20);
     Serial.println("Linha perdida / seguindo em frente");
   }
 }
@@ -205,20 +209,14 @@ void executarComando(String comando) {
   Serial.println(comando);
 
   if (comando == "frente") {
-    parar();
-    delay(200);
     passarDireto();
   }
 
   else if (comando == "direita") {
-    parar();
-    delay(200);
     virarDireita(tempoFrenteAntesCurvaDireita, tempoCurvaDireita);
   }
 
   else if (comando == "esquerda") {
-    parar();
-    delay(200);
     virarEsquerda(tempoFrenteAntesCurvaEsquerda, tempoCurvaEsquerda);
   }
 
@@ -300,7 +298,7 @@ void virarEsquerda(int frenteDel, int del) {
   frente();
   delay(frenteDel);
 
-  girarEsquerda(velocidadeCurva);
+  girarEsquerda(150);
   delay(del);
 
   parar();
@@ -316,7 +314,7 @@ void virarDireita(int frenteDel, int del) {
   frente();
   delay(frenteDel);
 
-  girarDireita(velocidadeCurva);
+  girarDireita(150);
   delay(del);
 
   parar();
