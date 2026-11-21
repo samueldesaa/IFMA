@@ -1,0 +1,215 @@
+---
+title: "Relatório - Atividade III"
+author: "Samuel Chaves De Sá (20231SI0011)"
+date: "28/09/2026"
+output: pdf_document
+---
+
+**Disciplina:** Pesquisa Operacional  
+**Professor:** Prof. Dr. Omar Andres Carmona Cortes  
+
+```{r setup, include=FALSE}
+# Configuração global dos blocos de código
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, fig.align = 'center')
+```
+
+```{r funcao_base, echo=TRUE}
+# Função base em R puro para cálculo de solução ótima em PL de 2 variáveis
+resolver_pl_simples <- function(c, A, b) {
+  A_com_nao_neg <- rbind(A, c(-1, 0), c(0, -1))
+  b_com_nao_neg <- c(b, 0, 0)
+  num_restr <- nrow(A_com_nao_neg)
+  pontos_viaveis <- list()
+  
+  for (i in 1:(num_restr - 1)) {
+    for (j in (i + 1):num_restr) {
+      sis_A <- rbind(A_com_nao_neg[i, ], A_com_nao_neg[j, ])
+      sis_b <- c(b_com_nao_neg[i], b_com_nao_neg[j])
+      
+      if (det(sis_A) != 0) {
+        ponto <- solve(sis_A, sis_b)
+        viavel <- TRUE
+        for (k in 1:num_restr) {
+          if (sum(A_com_nao_neg[k, ] * ponto) > b_com_nao_neg[k] + 1e-8) {
+            viavel <- FALSE
+            break
+          }
+        }
+        if (viavel) pontos_viaveis[[length(pontos_viaveis) + 1]] <- ponto
+      }
+    }
+  }
+  
+  max_z <- -Inf
+  melhor_ponto <- NULL
+  for (p in pontos_viaveis) {
+    z_atual <- sum(c * p)
+    if (z_atual > max_z) {
+      max_z <- z_atual
+      melhor_ponto <- p
+    }
+  }
+  return(list(ponto = melhor_ponto, maximo_z = max_z))
+}
+```
+
+---
+
+# Questão 1
+
+## Modelo Matemático
+
+O problema analisado na aula e cobrado na atividade[cite: 1, 3] possui a seguinte formulação:
+
+**Função Objetivo:**
+$$Max~Z = 120x_1 + 150x_2$$
+
+**Restrições:**
+1. $$2x_1 + 4x_2 \le 100$$
+2. $$3x_1 + 2x_2 \le 90$$
+3. $$5x_1 + 3x_2 \le 120$$
+4. $$x_1, x_2 \ge 0$$
+
+## a. Resolução considerando apenas as duas primeiras restrições
+
+Nesta primeira fase, avaliamos o cenário original antes da adição da terceira restrição limitante.
+
+```{r q1_alinea_a}
+vetor_custos <- c(120, 150)
+A_2restr <- matrix(c(2, 4, 3, 2), nrow = 2, byrow = TRUE)
+b_2restr <- c(100, 90)
+
+sol_a <- resolver_pl_simples(vetor_custos, A_2restr, b_2restr)
+cat("Ótimo (2 restrições): x1 =", sol_a$ponto[1], ", x2 =", sol_a$ponto[2], "\n")
+cat("Lucro Máximo (Z) =", sol_a$maximo_z, "\n")
+```
+
+## b. Resolução considerando as 3 restrições
+
+Com a introdução da terceira restrição ($5x_1 + 3x_2 \le 120$), o ponto ótimo anterior (20, 15) torna-se inviável. A área de soluções possíveis é reduzida.
+
+```{r q1_alinea_b, fig.height=5.5, fig.width=7}
+A_3restr <- matrix(c(2, 4, 3, 2, 5, 3), nrow = 3, byrow = TRUE)
+b_3restr <- c(100, 90, 120)
+
+sol_b <- resolver_pl_simples(vetor_custos, A_3restr, b_3restr)
+cat("Novo Ótimo (3 restrições): x1 =", round(sol_b$ponto[1], 2), 
+    ", x2 =", round(sol_b$ponto[2], 2), "\n")
+cat("Novo Lucro Máximo (Z) =", round(sol_b$maximo_z, 2), "\n")
+
+# Gráfico Expandido com todas as intersecções
+plot(0, 0, type = "n", xlim = c(0, 60), ylim = c(0, 60),
+     xlab = "Quantidade de x1", ylab = "Quantidade de x2",
+     main = "Análise Gráfica - 3 Restrições")
+
+# Retas
+abline(a = 25, b = -0.5, col = "red", lwd = 2) # R1
+abline(a = 45, b = -1.5, col = "blue", lwd = 2) # R2
+abline(a = 40, b = -(5/3), col = "darkgreen", lwd = 2) # R3
+
+# Polígono da Região Viável
+polygon(c(0, 24, 90/7, 0), c(0, 0, 130/7, 25), col = rgb(0.5, 0.5, 0.5, 0.3), border = NA)
+
+# Pontos de intersecção no primeiro quadrante (com eixos e entre as retas)
+pontos_x <- c(0, 24, 30, 50, 0, 0, 20, 90/7)
+pontos_y <- c(25, 0, 0, 0, 40, 45, 15, 130/7)
+
+points(pontos_x, pontos_y, col = "black", pch = 19, cex = 1.2)
+
+# Rótulos dos pontos
+text(0, 25, labels = "(0, 25)", pos = 4, cex = 0.8)
+text(24, 0, labels = "(24, 0)", pos = 3, cex = 0.8)
+text(30, 0, labels = "(30, 0)", pos = 3, cex = 0.8)
+text(50, 0, labels = "(50, 0)", pos = 3, cex = 0.8)
+text(0, 40, labels = "(0, 40)", pos = 4, cex = 0.8)
+text(0, 45, labels = "(0, 45)", pos = 4, cex = 0.8)
+text(20, 15, labels = "R1xR2 (20, 15)", pos = 4, cex = 0.8)
+text(90/7, 130/7, labels = "Ótimo (12.86, 18.57)", pos = 4, font = 2, cex = 0.9)
+
+legend("topright", legend = c("R1", "R2", "R3", "Região Viável"),
+       col = c("red", "blue", "darkgreen", "gray"),
+       lty = c(1, 1, 1, NA), pch = c(NA, NA, NA, 15), lwd = 2, bg = "white")
+```
+
+---
+
+# Questão 2
+
+## Modelo Matemático da IF-Tintas
+
+O problema da IF-Tintas visa otimizar a produção de tintas para exteriores ($x_1$) e interiores ($x_2$) com base na disponibilidade diária de matérias-primas[cite: 1].
+
+**Função Objetivo:**
+$$Max~Z = 5000x_1 + 4000x_2$$
+
+**Restrições:**
+1. $$6x_1 + 4x_2 \le 24$$ (M1)
+2. $$x_1 + 2x_2 \le 6$$ (M2)
+3. $$x_1, x_2 \ge 0$$
+
+## a. Análise de Preço Dual (M1 vs M2)
+
+Para identificar qual matéria-prima vale mais a pena aumentar, calculamos o preço dual incrementando uma unidade na disponibilidade de cada recurso e avaliando o impacto no lucro máximo[cite: 1].
+
+```{r q2_alinea_a}
+c_q2 <- c(5000, 4000)
+A_q2 <- matrix(c(6, 4, 1, 2), nrow = 2, byrow = TRUE)
+
+# Cenário Base
+sol_base_q2 <- resolver_pl_simples(c_q2, A_q2, c(24, 6))
+
+# Aumento de 1 ton em M1
+sol_m1 <- resolver_pl_simples(c_q2, A_q2, c(25, 6))
+pd_m1 <- sol_m1$maximo_z - sol_base_q2$maximo_z
+
+# Aumento de 1 ton em M2
+sol_m2 <- resolver_pl_simples(c_q2, A_q2, c(24, 7))
+pd_m2 <- sol_m2$maximo_z - sol_base_q2$maximo_z
+
+cat("Lucro Base: R$", sol_base_q2$maximo_z, "\n")
+cat("Preço Dual da M1: R$", pd_m1, "\n")
+cat("Preço Dual da M2: R$", pd_m2, "\n")
+```
+
+**Resposta:** Vale mais a pena aumentar a disponibilidade da **Matéria-prima M1**, pois o seu preço dual (R$ 750) é superior ao da M2 (R$ 500). O custo máximo que pode ser assumido por essa tonelada adicional é exatamente o seu preço dual, ou seja, R$ 750, para que o investimento não anule o ganho marginal.
+
+## b. Variação no Lucro (Faixa de Otimalidade)
+
+Nesta alínea, testamos se a solução ótima da produção ($x_1 = 3, x_2 = 1.5$) se mantém caso o lucro da tinta para exteriores seja modificado para R$ 5500 ou R$ 4500[cite: 1].
+
+```{r q2_alinea_b, fig.height=5, fig.width=7}
+# Teste com Lucro = R$ 5500
+sol_aumentada <- resolver_pl_simples(c(5500, 4000), A_q2, c(24, 6))
+
+# Teste com Lucro = R$ 4500
+sol_reduzida <- resolver_pl_simples(c(4500, 4000), A_q2, c(24, 6))
+
+# Impressão com quebra de linha para não vazar a borda do PDF
+cat("Com Lucro em R$ 5500 -> Ótimo: (", sol_aumentada$ponto[1], ",", 
+    sol_aumentada$ponto[2], ") | Z = R$", sol_aumentada$maximo_z, "\n")
+
+cat("Com Lucro em R$ 4500 -> Ótimo: (", sol_reduzida$ponto[1], ",", 
+    sol_reduzida$ponto[2], ") | Z = R$", sol_reduzida$maximo_z, "\n")
+
+# Gráfico representativo da IF-Tintas
+plot(0, 0, type = "n", xlim = c(0, 8), ylim = c(0, 8),
+     xlab = "Exteriores (x1)", ylab = "Interiores (x2)",
+     main = "Região Viável - IF-Tintas")
+
+abline(a = 6, b = -1.5, col = "red", lwd = 2) # M1
+abline(a = 3, b = -0.5, col = "blue", lwd = 2) # M2
+
+# Região Viável
+polygon(c(0, 4, 3, 0), c(0, 0, 1.5, 3), 
+        col = rgb(0.5, 0.5, 0.5, 0.3), border = NA)
+
+points(c(0, 4, 6, 0, 3), c(3, 0, 0, 6, 1.5), 
+       col = "black", pch = 19, cex = 1.2)
+text(3, 1.5, labels = "Ótimo (3, 1.5)", pos = 4, font = 2)
+
+legend("topright", legend = c("M1", "M2", "Região Viável"),
+       col = c("red", "blue", "gray"), 
+       lty = c(1, 1, NA), pch = c(NA, NA, 15), lwd = 2)
+```
+
+**Resposta:** Sim, ambos os cenários mantêm o plano ótimo de produção em 3 toneladas de tinta para exteriores e 1,5 toneladas para interiores, provando que estes valores ainda se encontram dentro da faixa de otimalidade. O cenário mais lucrativo, naturalmente, seria o aumento para R$ 5500, atingindo um lucro total máximo de R$ 22.500.
